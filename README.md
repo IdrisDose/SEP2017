@@ -1,7 +1,5 @@
-# SEP2017
-SEP Repo
+# SEP 2017 - [![Build Status](https://travis-ci.com/IdrisDose/SEP2017.svg?token=7ppvptVmsRbWyCMsFksi&branch=master)](https://travis-ci.com/IdrisDose/SEP2017)
 
-
-# TODO
- - Update Colors
- - Update List pages towards a more album-like page (example; https://getbootstrap.com/docs/4.0/examples/album/)
+# Changelog
+- Moved ./backup to htmlcode.zip (idk why we need to keep it anymore)
+- Added Travis integration for builds
