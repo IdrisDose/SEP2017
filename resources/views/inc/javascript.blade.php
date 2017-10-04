@@ -2,3 +2,4 @@
 <script src="{{asset('js/popper.min.js')}}"></script>
 <script src="{{asset('js/popper-utils.min.js')}}"></script>
 <script src="{{asset('js/boostrap.min.js')}}"></script>
+<script src="{{asset('js/fa.js')}}"></script>

@@ -10,15 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', 'PageController@index')->name('index');
+Route::get('/dashboard', 'PageController@dash')->name('dashboard');
+Route::get('/register', 'PageController@register')->name('register');
+Route::get('/students', 'PageController@students')->name('students');
+Route::get('/sponsors', 'PageController@sponsors')->name('sponsors');
+Route::get('/profile', 'PageController@account')->name('profile');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Auth::routes();
 
-Route::get('/home', 'PageController@home');
-Route::get('/dashboard', 'PageController@dash');
-Route::get('/login', 'PageController@login');
-Route::get('/register', 'PageController@register');
-Route::get('/students', 'PageController@students');
-Route::get('/sponsors', 'PageController@sponsors');
-Route::get('/account', 'PageController@account');
+Route::get('/home', 'HomeController@index')->name('home');
