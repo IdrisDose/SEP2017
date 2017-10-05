@@ -8,4 +8,5 @@
 - Large overhaul
 - Added new UI layout
 - Added Authentication (to be updated later)
-- Change Login/Logout Redirection 
+- Change Login/Logout Redirection
+- Added Account type selector to register form

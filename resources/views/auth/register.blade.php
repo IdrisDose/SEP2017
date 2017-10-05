@@ -39,6 +39,16 @@
             <label for="password-confirm" class="sr-only">Confirm Password</label>
             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required placeholder="Repeat password">
         </div>
+
+        <div class="form-group">
+            <label for="account-type" class="sr-only">Account Type</label>
+            <select class="form-control" id="account-type" name="account-type">
+              <option value="dis" selected disabled>Account Type...</option>
+              <option value="student">Student</option>
+              <option value="student">Sponsor</option>
+            </select>
+        </div>
+
         <div class="form-group">
             <div class="checkbox">
                 <label>
