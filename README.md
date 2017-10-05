@@ -10,3 +10,4 @@
 - Added Authentication (to be updated later)
 - Change Login/Logout Redirection
 - Added Account type selector to register form
+- Added Admin Management Dashboard for testing and website control
