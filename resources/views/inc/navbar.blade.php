@@ -56,7 +56,7 @@
             @else
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('profile')}}">
-                        <i class="fa fa-user" aria-hidden="true"></i> Account
+                        <i class="fa fa-user" aria-hidden="true"></i> {{ Auth::user()->name }}
                     </a>
                 </li>
                 <li class="nav-item">

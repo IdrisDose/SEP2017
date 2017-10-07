@@ -18,6 +18,11 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('acctype');
+            $table->decimal('balance',12,2)->default('0.00');
+            $table->integer('degreelevel')->default('0');
+            $table->boolean('active')->default('1');
+            $table->boolean('admin')->default('0');
             $table->rememberToken();
             $table->timestamps();
         });

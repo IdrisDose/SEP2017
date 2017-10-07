@@ -28,7 +28,4 @@ class PageController extends Controller
     public function dash(){
       return view('dashboard');
     }
-    public function admin(){
-      return view('admin');
-    }
 }

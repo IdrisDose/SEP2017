@@ -41,11 +41,11 @@
         </div>
 
         <div class="form-group">
-            <label for="account-type" class="sr-only">Account Type</label>
-            <select class="form-control" id="account-type" name="account-type">
+            <label for="acctype" class="sr-only">Account Type</label>
+            <select class="form-control" id="acctype" name="acctype">
               <option value="dis" selected disabled>Account Type...</option>
               <option value="student">Student</option>
-              <option value="student">Sponsor</option>
+              <option value="sponsor">Sponsor</option>
             </select>
         </div>
 
