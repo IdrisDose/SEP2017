@@ -33,6 +33,7 @@ return [
     |
     | Supported: "session", "token"
     |
+    | Added Admin and admin-api - but not needed anymore
     */
 
     'guards' => [
@@ -69,6 +70,7 @@ return [
     |
     | Supported: "database", "eloquent"
     |
+    | Added Admin and admin-api - but not needed anymore
     */
 
     'providers' => [
