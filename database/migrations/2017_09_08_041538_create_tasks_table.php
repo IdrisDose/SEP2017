@@ -18,10 +18,10 @@ class CreateTasksTable extends Migration
             $table->integer('user_id');
             $table->string('name');
             $table->string('description');
-            $table->decimal('price',12,2);
-            $table->boolean('active');
-            $table->boolean('completed');
-            $table->boolean('private');
+            $table->decimal('price',12,2)->default('0.00');
+            $table->boolean('active')->default('1');
+            $table->boolean('completed')->default('0');
+            $table->boolean('private')->default('0');
             $table->timestamps();
         });
     }

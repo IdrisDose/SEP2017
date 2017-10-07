@@ -14,7 +14,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','acctype','balance', 'degree_id', 'active', 'admin',
+        'name', 'email', 'password','acctype','website','company','balance', 'degree_id', 'active', 'admin',
     ];
 
     /**
@@ -48,6 +48,6 @@ class User extends Authenticatable
     }
 
     public function tasks(){
-        return $this->hasMany(Task::class);   
+        return $this->hasMany(Task::class);
     }
 }

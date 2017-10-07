@@ -19,7 +19,7 @@ class CreateSponsorshipsTable extends Migration
           $table->integer('student_id');
           $table->integer('task_id');
           $table->timestamps();
-          $table->boolean('active');
+          $table->boolean('active')->default('1');
         });
     }
 

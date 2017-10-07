@@ -28,4 +28,5 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/tasks', 'TaskController@tasklist')->name('tasks');
     Route::get('/newtask', 'TaskController@taskform')->name('newtask');
     Route::post('/tasks', 'TaskController@newtask')->name('task.create');
+    Route::put('/updateprofile/{id}', 'PageController@editaccount')->name('profile.update');
 });

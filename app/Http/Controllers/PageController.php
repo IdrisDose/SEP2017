@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Degree;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth; //add auth package
+
 
 class PageController extends Controller
 {
@@ -13,7 +16,18 @@ class PageController extends Controller
     }
     public function account($id){
         $user = User::find($id);
-        return view('account')->with('user',$user);
+        $degrees = Degree::all();
+        return view('account',compact('degrees'))->with('user',$user);
+    }
+    public function editaccount(Request $req, $id){
+        //If user is logged in and user is either admin or user being edited
+        if(Auth::user() && (Auth::user()->isAdmin() || Auth::user()->id == $id)){
+            $user = User::where('id',$id);
+            $data = $req->except(['_token','_method']);
+            $user->update($data);
+            return redirect()->route('profile',$id);
+        }
+        return redirect()->route('profile',$id);
     }
     public function sponsors(){
         $users = User::where('acctype','=','sponsor')->get();
