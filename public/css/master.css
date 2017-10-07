@@ -8,8 +8,6 @@ html {
 }
 body {
     /* Margin bottom by footer height */
-
-    margin-bottom: 60px;
     font-family: roboto;
     background-color: #a5c7ff;
 }
@@ -21,16 +19,41 @@ body {
   background-size: cover;
       color:white;
 }
-.footer {
-    position: absolute;
-    bottom: 0;
-    margin-top: 1.25rem;
-    width: 100%;
-    /* Set the fixed height of the footer here */
-    height: 60px;
-    line-height: 60px; /* Vertically center the text there */
+
+
+.bg-inc2{
+    background: url('../imgs/bg.png')no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+      color:white;
 }
 
+
+@media screen and (min-width: 1200px){
+    .bg-inc2{
+        background: url('../imgs/bg2.png')no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+          color:white;
+    }
+}
+
+.footer {
+  position: static;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  line-height: 60px; /* Vertically center the text there */
+}
+
+.absolute{
+    position: absolute;
+}
 /* Signin form */
 .form-signin {
     max-width: 60%;
@@ -291,4 +314,7 @@ code {
     border: 1px solid black;
     padding-right: 16px;
     padding-left: 3px;
+}
+.container-cover{
+    height: 100%;
 }
