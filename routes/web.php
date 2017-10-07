@@ -26,4 +26,6 @@ Route::group(['middleware'=>'auth'],function(){
     Route::get('/dashboard', 'HomeController@dash')->name('dashboard');
     Route::get('/task/{id}', 'TaskController@task')->name('task');
     Route::get('/tasks', 'TaskController@tasklist')->name('tasks');
+    Route::get('/newtask', 'TaskController@taskform')->name('newtask');
+    Route::post('/tasks', 'TaskController@newtask')->name('task.create');
 });

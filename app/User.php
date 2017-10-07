@@ -46,4 +46,8 @@ class User extends Authenticatable
         return $id==0?'None':$degree->name;
 
     }
+
+    public function tasks(){
+        return $this->hasMany(Task::class);   
+    }
 }
