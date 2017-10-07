@@ -18,7 +18,6 @@
             @endif
 
             @auth
-
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('dashboard')}}">Dashboard</a>
                 </li>
@@ -41,6 +40,12 @@
             @else
                 <li class="nav-item">
                     <a class="nav-link" href="{{route('students')}}">Students</span></a>
+                </li>
+            @endif
+
+            @if(Auth::user() && Auth::user()->isAdmin())
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('admin')}}">Admin</a>
                 </li>
             @endif
         </ul>

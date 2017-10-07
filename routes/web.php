@@ -12,11 +12,12 @@
 */
 Route::get('/', 'PageController@index')->name('index');
 Route::get('/home', 'PageController@index')->name('index');
-Route::get('/dashboard', 'PageController@dash')->name('dashboard');
 Route::get('/register', 'PageController@register')->name('register');
 Route::get('/students', 'PageController@students')->name('students');
 Route::get('/sponsors', 'PageController@sponsors')->name('sponsors');
 Route::get('/profile', 'PageController@account')->name('profile');
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin', 'HomeController@admin')->name('admin');
+Route::get('/dashboard', 'HomeController@dash')->name('dashboard');
