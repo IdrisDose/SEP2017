@@ -43,7 +43,7 @@ body {
 }
 
 .footer {
-  position: static;
+  position: absolute;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
@@ -51,8 +51,8 @@ body {
   line-height: 60px; /* Vertically center the text there */
 }
 
-.absolute{
-    position: absolute;
+.static{
+    position: static;
 }
 /* Signin form */
 .form-signin {

@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="{{ asset('css/master.css') }}">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>GoFundyMe</title>
 </head>
 <noscript>
     This site requires Javascript. Please enable Javascript in your browser for this site.<br/>
-    
+
     Something make look broken without it, please enable it.
 </noscript>
 @if(Route::is('index') || Route::is('dashboard') || Route::is('admin') || Route::is('login') || Route::is('register'))

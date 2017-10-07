@@ -78,6 +78,14 @@
                 @endguest
                 @auth
                     <h1>Welcome Back, {{ Auth::user()->name }}</h1>
+                    <p>Quick DEBUG (REMOVE WHEN PUBLISH)</p>
+                    <ul>
+                        <li>AccName: {{Auth::user()->name}}</li>
+                        <li>AccType: {{Auth::user()->acctype}}</li>
+                        <li>IsActive?: {{Auth::user()->active}}</li>
+                        <li>IsAdmin?: {{Auth::user()->admin}}</li>
+                        <li>Degree?: {{Auth::user()->getDegree()}}</li>
+                    </ul>
                 @endauth
             </div>
         </div>

@@ -26,7 +26,7 @@
                     @foreach($users as $user)
                         <tr>
                             <td>{{$user->name}}</td>
-                            <td>null</td>
+                            <td>{{$user->getDegree()}}</td>
                             <td>0</td>
                             <td>0</td>
                             <td>0</td>

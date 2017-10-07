@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
 class User extends Authenticatable
 {
     use Notifiable;
@@ -15,7 +14,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','acctype','balance', 'degreelevel', 'active', 'admin',
+        'name', 'email', 'password','acctype','balance', 'degree_id', 'active', 'admin',
     ];
 
     /**
@@ -39,5 +38,12 @@ class User extends Authenticatable
     }
     public function isActive(){
         return $this->active?'Yes':'No';
+    }
+
+    public function getDegree(){
+        $id = $this->degree_id;
+        $degree = Degree::where('id','=',$id)->first();
+        return $id==0?'None':$degree->name;
+
     }
 }

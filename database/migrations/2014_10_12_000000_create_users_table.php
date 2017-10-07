@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('acctype');
             $table->decimal('balance',12,2)->default('0.00');
-            $table->integer('degreelevel')->default('0');
+            $table->integer('degree_id')->default('0');
             $table->boolean('active')->default('1');
             $table->boolean('admin')->default('0');
             $table->rememberToken();

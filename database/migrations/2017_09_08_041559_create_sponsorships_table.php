@@ -15,9 +15,9 @@ class CreateSponsorshipsTable extends Migration
     {
         Schema::create('sponsorships', function (Blueprint $table) {
           $table->increments('id');
-          $table->integer('sponsorid');
-          $table->integer('studentid');
-          $table->integer('taskid');
+          $table->integer('sponsor_id');
+          $table->integer('student_id');
+          $table->integer('task_id');
           $table->timestamps();
           $table->boolean('active');
         });
