@@ -16,13 +16,20 @@
                     <tr>
                         <th>Sponsor Name</th>
                         <th>Link</th>
-
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    @if(count($users)>0)
+                        @foreach ($users as $userObj)
+                            <tr>
+                                <td>{{$userObj->name}}</td>
+                                <td><a href="/profile/{{$userObj->id}}">Link</a></td>
+                            </tr>
+                        @endforeach
+                    @endif
                 </tbody>
             </table>
+
         </div>
     </div>
 @endsection

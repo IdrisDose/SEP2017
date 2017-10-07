@@ -15,9 +15,13 @@ Route::get('/home', 'PageController@index')->name('index');
 Route::get('/register', 'PageController@register')->name('register');
 Route::get('/students', 'PageController@students')->name('students');
 Route::get('/sponsors', 'PageController@sponsors')->name('sponsors');
-Route::get('/profile', 'PageController@account')->name('profile');
+Route::get('/profile/{id}', 'PageController@account')->name('profile');
 
 Auth::routes();
 
-Route::get('/admin', 'HomeController@admin')->name('admin');
-Route::get('/dashboard', 'HomeController@dash')->name('dashboard');
+Route::group(['middleware'=>'auth'],function(){
+    Route::get('/admin', 'HomeController@admin')->name('admin');
+    Route::get('/dashboard', 'HomeController@dash')->name('dashboard');
+    Route::get('/task/{id}', 'TaskController@task')->name('task');
+    Route::get('/tasks', 'TaskController@tasklist')->name('tasks');
+});

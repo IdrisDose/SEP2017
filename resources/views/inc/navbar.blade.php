@@ -39,13 +39,17 @@
                 </li>
             @else
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('students')}}">Students</span></a>
+                    <a class="nav-link" href="{{route('students')}}">Students</a>
                 </li>
             @endif
 
-            @if(Auth::user() && Auth::user()->isAdmin())
+            @if(Request::is('tasks'))
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{route('tasks')}}">Tasks <span class="sr-only">(current)</span></a>
+                </li>
+            @else
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('admin')}}">Admin</a>
+                    <a class="nav-link" href="{{route('tasks')}}">Tasks </a>
                 </li>
             @endif
         </ul>
@@ -60,10 +64,23 @@
                 </li>
             @else
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('profile')}}">
+                    <a class="nav-link" href="{{route('profile',Auth::user()->id)}}">
                         <i class="fa fa-user" aria-hidden="true"></i> {{ Auth::user()->name }}
                     </a>
                 </li>
+
+                @if(Auth::user()->isAdmin())
+                    @if(Request::is('admin'))
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{route('admin')}}"><i class="fa fa-lock" aria-hidden="true"></i> Admin</a>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('admin')}}"><i class="fa fa-lock" aria-hidden="true"></i> Admin</a>
+                        </li>
+                    @endif
+                @endif
+
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>

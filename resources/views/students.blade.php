@@ -23,7 +23,16 @@
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    @foreach($users as $user)
+                        <tr>
+                            <td>{{$user->name}}</td>
+                            <td>null</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td>0</td>
+                            <td><a href="/profile/{{$user->id}}">Link</a></td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

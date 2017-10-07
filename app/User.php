@@ -30,4 +30,14 @@ class User extends Authenticatable
     public function isAdmin(){
         return $this->admin;
     }
+
+    public function isStudent(){
+        return $this->acctype=='student';
+    }
+    public function isSponsor(){
+        return $this->acctype=='sponsor';
+    }
+    public function isActive(){
+        return $this->active?'Yes':'No';
+    }
 }

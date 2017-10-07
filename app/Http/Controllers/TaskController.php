@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
+use App\Task;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class TaskController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -22,13 +22,12 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(){
-        return view('home');
+    public function task(){
+        $task = Task::find($id);
+        return view('task')->with('task',$task);
     }
-    public function admin(){
-        return view('admin');
-    }
-    public function dash(){
-        return view('dashboard');
+    public function tasklist(){
+        $tasks = Task::all();
+        return view('tasks',compact('tasks'));
     }
 }
