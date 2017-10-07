@@ -10,7 +10,9 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
-<body class="clearfix">
+
+<body class="clearfix bg-inc">
+
     <div class="container-fluid">
         <div class="row">
             @include('inc.navbar')
@@ -18,7 +20,6 @@
         <div class="row row-large">
             @yield('content')
         </div>
-        <hr>
         <div class="row">
             @include('inc.footer')
         </div>

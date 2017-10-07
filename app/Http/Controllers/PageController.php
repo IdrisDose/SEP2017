@@ -29,7 +29,10 @@ class PageController extends Controller
     public function register(){
         return view('register');
     }
-    public function dash(){
-        return view('dashboard');
+    public function about(){
+        return view('about');
+    }
+    public function help(){
+        return view('help');
     }
 }

@@ -15,15 +15,15 @@
                 <thead>
                     <tr>
                         <th>Sponsor Name</th>
-                        <th>Link</th>
+                        <th>Active</th>
                     </tr>
                 </thead>
                 <tbody>
                     @if(count($users)>0)
                         @foreach ($users as $userObj)
                             <tr>
-                                <td>{{$userObj->name}}</td>
-                                <td><a href="/profile/{{$userObj->id}}">Link</a></td>
+                                <td><a href="/profile/{{$userObj->id}}">{{$userObj->name}}</a></td>
+                                <td>{{$userObj->isActive()}}</td>
                             </tr>
                         @endforeach
                     @endif

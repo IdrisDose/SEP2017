@@ -16,6 +16,8 @@ Route::get('/register', 'PageController@register')->name('register');
 Route::get('/students', 'PageController@students')->name('students');
 Route::get('/sponsors', 'PageController@sponsors')->name('sponsors');
 Route::get('/profile/{id}', 'PageController@account')->name('profile');
+Route::get('/about', 'PageController@about')->name('about');
+Route::get('/help', 'PageController@help')->name('help');
 
 Auth::routes();
 

@@ -8,15 +8,18 @@ html {
 }
 body {
     /* Margin bottom by footer height */
-    color:white;
+
     margin-bottom: 60px;
-    background-color: rgba(255,255,255,0) !important;
     font-family: roboto;
+    background-color: #a5c7ff;
+}
+.bg-inc{
     background: url('../imgs/bg.png')no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+      color:white;
 }
 .footer {
     position: absolute;
@@ -268,4 +271,24 @@ code {
 }
 .row-large{
     min-height:100%;
+}
+
+.footer-link {
+    color: #8a9096!important;
+}
+
+.fundyLogo{
+    float:left;
+    height: 30px;
+    width: 30px;
+    background-color: #a5c7ff;
+    margin-right:3px;
+    text-align: center;
+    color:white;
+    border-radius: 5px;
+}
+.navbar-brand{
+    border: 1px solid black;
+    padding-right: 16px;
+    padding-left: 3px;
 }
