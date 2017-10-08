@@ -322,3 +322,12 @@ code {
 .m-x-auto{
     margin: 15px auto;
 }
+
+.navbar{
+    border-radius: 0px !important;
+}
+
+.dropdown-item:hover{
+    transition: all .1s linear;
+    background-color: #1dade2 !important;
+}

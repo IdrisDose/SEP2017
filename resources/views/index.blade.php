@@ -10,7 +10,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="welcome-container-1 grad-content-bg">
+            <div class="animated fadeIn welcome-container-1 grad-content-bg">
 
                 <div class="justify-content-sm-center center-text mt-3">
                     <h2>GoFundyMe</h2>
@@ -19,7 +19,7 @@
                     </p>
                 </div>
             </div>
-            <div class="welcome-container-2 center-text grad-content-bg">
+            <div class="animated fadeIn welcome-container-2 center-text grad-content-bg">
                 @guest
                     <div class="justify-content-sm-center mt-3">
 

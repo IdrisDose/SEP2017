@@ -1,9 +1,9 @@
 @extends('layouts.base')
 
 @section('content')
-    <div class="container clearfix">
+    <div class="container mt-3">
 
-        <div class="row m-y-2">
+        <div class="row my-2">
 
             <div class="col-lg-4 pull-lg-8 text-xs-center">
                 <h4 class="center-text">{{$user->name}} (ID: {{$user->id}})</h4>

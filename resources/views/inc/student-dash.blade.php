@@ -1,4 +1,4 @@
-<div class="container-fluid">
+
       <div class="row">
           <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
               <ul class="nav nav-pills flex-column">
@@ -20,7 +20,7 @@
               </ul>
           </nav>
 
-          <main class="col-sm-9 ml-sm-auto col-md-10 pt-3" role="main">
+          <div class="col-sm-9 ml-sm-auto col-md-10 pt-3">
               <h1>Student Dashboard (ID: {{ Auth::user()->id }})</h1>
 
               <section class="row text-center placeholders">
@@ -59,6 +59,5 @@
                       </tbody>
                   </table>
               </div>
-          </main>
+          </div>
       </div>
-  </div>
