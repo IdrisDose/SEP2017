@@ -10,7 +10,7 @@
 
         <div class="form-group">
             <label for="description" class="sr-only">Description</label>
-            <input id="description" type="textarea" class="form-control" name="description" required placeholder="Email">
+            <textarea id="description"  class="form-control" name="description" required placeholder="Task Description"></textarea>
 
         </div>
 

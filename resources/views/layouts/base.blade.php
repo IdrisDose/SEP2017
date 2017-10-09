@@ -26,11 +26,11 @@
 
     Something make look broken without it, please enable it.
 </noscript>
-@if(Route::is('index') || Route::is('dashboard') || Route::is('admin') || Route::is('login') || Route::is('register'))
-    <body class="clearfix bg-inc">
-@else
-    <body class="clearfix bg-inc2">
-@endif
+        @if(Route::is('index'))
+            <body class="clearfix bg-inc">
+        @else
+            <body class="clearfix">
+        @endif
             @if(!(Route::is('dashboard')))
                 <header>
                     @include('inc.navbar')
@@ -57,7 +57,7 @@
                 </footer>
             @endif
 
-            
+
     @include('inc.javascript')
 </body>
 </html>

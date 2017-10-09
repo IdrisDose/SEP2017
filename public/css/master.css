@@ -9,8 +9,10 @@ html {
 body {
     /* Margin bottom by footer height */
     font-family: roboto;
-    background-color: #ce7349;
+    background-color: #F4F7FA;
 }
+
+
 .bg-inc{
     background: url('../imgs/bg.png')no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -20,7 +22,7 @@ body {
       color:white;
 }
 
-
+/*
 .bg-inc2{
     background: url('../imgs/bg.png')no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -41,7 +43,7 @@ body {
           color:white;
     }
 }
-
+*/
 .footer {
   position: absolute;
   bottom: 0;

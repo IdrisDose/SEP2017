@@ -45,3 +45,7 @@ label, h4,h1,h2,h3,th{
 .nav-item.active{
     background: #f98f5d;
 }
+
+textarea{
+    border-color: #bdbdbd !important;
+}
