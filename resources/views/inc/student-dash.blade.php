@@ -63,8 +63,8 @@
                   <div class="col-6">
                     <!-- Income-->
                     <div class="wrapper income text-center align-middle">
-                      <div class="number">126,418</div><strong class="text-primary">All Income</strong>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
+                      <div class="number">${{Auth::user()->balance}} AUD</div><strong class="text-primary">All Income</strong>
+                      <p>Total amount recieved via tasks and sponsorships</p>
                     </div>
                   </div>
                   <div class="col-6">

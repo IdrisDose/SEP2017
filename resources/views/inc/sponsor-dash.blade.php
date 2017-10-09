@@ -24,7 +24,7 @@
                             <div class="wrapper count-title d-flex">
                                 <div class="icon"><i class="icon-user"></i></div>
                                 <div class="name"><strong class="text-uppercase">Tasks Pending</strong>
-                                    <div class="count-number">0</div>s
+                                    <div class="count-number">0</div>
                                 </div>
                             </div>
                         </div>
@@ -61,11 +61,11 @@
               <div class="container-fluid">
                 <div class="row d-flex align-items-stretch">
                   <div class="col-6">
-                    <!-- Income-->
-                    <div class="wrapper income text-center align-middle">
-                      <div class="number">126,418</div><strong class="text-primary">All Income</strong>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do.</p>
-                    </div>
+                      <!-- Income-->
+                      <div class="wrapper income text-center align-middle">
+                        <div class="number">${{Auth::user()->balance}} AUD</div><strong class="text-primary">All Income</strong>
+                        <p>Total amount recieved via tasks and sponsorships</p>
+                      </div>
                   </div>
                   <div class="col-6">
                     <!-- User Actibity-->
