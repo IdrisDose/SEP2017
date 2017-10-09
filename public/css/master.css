@@ -22,7 +22,7 @@ body {
       color:white;
 }
 
-/*
+
 .bg-inc2{
     background: url('../imgs/bg.png')no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -43,7 +43,7 @@ body {
           color:white;
     }
 }
-*/
+
 .footer {
   position: absolute;
   bottom: 0;
@@ -257,7 +257,7 @@ code {
     margin-right: 20px;
 }
 .container-profile{
-    
+
 }
 
 .grad-content-bg{

@@ -25,7 +25,7 @@
     color:white;
     background: transparent !important;
 }
-.nav-link.active{
+.nav-link.active:hover{
     color:white;
 }
 
@@ -34,7 +34,7 @@ label, h4,h1,h2,h3,th{
 }
 
 .light-orange, .light-orange.active{
-    background-color: #343a40!important;
+    /*background-color: #343a40!important;*/
 }
 
 .db-text{
@@ -53,4 +53,11 @@ label, h4,h1,h2,h3,th{
 
 textarea{
     border-color: #bdbdbd !important;
+}
+.form-control{
+    color:white;
+}
+
+table.table a{
+    color:white;
 }

@@ -26,10 +26,12 @@
 
     Something make look broken without it, please enable it.
 </noscript>
-        @if(Route::is('index') || Route::is('profile'))
+        @if(Route::is('profile') || Route::is('students') || Route::is('sponsors') || Route::is('tasks'))
+            <body class="clearfix bg-inc2">
+        @elseif(!(Route::is('dashboard')))
             <body class="clearfix bg-inc">
         @else
-            <body class="clearfix">
+            <body class="clearfix bg-inc">
         @endif
             @if(!(Route::is('dashboard')))
                 <header>

@@ -40,7 +40,7 @@
                             </li>
                         @endif
                     @endauth
-                    @if (Auth::user()->isSponsor() && $user->isStudent())
+                    @if (Auth::User() && Auth::user()->isSponsor() && $user->isStudent())
                         <li class="nav-item">
                             <a class="nav-link" href="Sponsor" >Sponsor</a>
                         </li>

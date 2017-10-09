@@ -73,7 +73,7 @@ table {
   right: 0;
   transition: width 0.3s linear;
   width: calc(100% - 200px);
-  background-color: #F4F7FA;
+  background-color: transparent;
   min-height: 100vh;
   padding-bottom: 50px;
 }
@@ -88,7 +88,7 @@ table {
 }
 
 h2 {
-  color: #555;
+  color: white;
   font-weight: 400;
 }
 
@@ -627,7 +627,7 @@ nav.side-navbar.shrink span {
 * ==========================================================
 */
 section.dashboard-counts {
-  color: #333;
+
 }
 
 section.dashboard-counts .count-title span {
@@ -648,7 +648,7 @@ section.dashboard-counts .icon {
 section.dashboard-counts strong {
   font-size: 0.9em;
   font-weight: 500;
-  color: #555;
+  color: white;
   display: block;
 }
 
