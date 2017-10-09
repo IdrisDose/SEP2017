@@ -1,0 +1,47 @@
+.btn-primary{
+    background-color: #ce7349;
+}
+
+.btn-primary:hover{
+    background-color: #7b4026 !important;
+}
+
+.text-muted{
+    color: #ce7349 !important;
+}
+
+
+.dropdown-item:hover{
+    transition: all .1s linear;
+    background-color: #ce7349 !important;
+}
+
+.tab.active{
+    background-color: white !important;
+}
+
+.tab:hover{
+    background: transparent !important;
+}
+
+label, h4,h1,h2,h3,th{
+    color: #f98f5f;
+}
+
+.light-orange, .light-orange.active{
+    background-color: #343a40!important;
+}
+
+.db-text{
+    color: white !important;
+}
+
+.db-section-title{
+    color: black !important;
+}
+.nav-link:hover{
+    background: #ce7349;
+}
+.nav-item.active{
+    background: #f98f5d;
+}

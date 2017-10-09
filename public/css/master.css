@@ -9,7 +9,7 @@ html {
 body {
     /* Margin bottom by footer height */
     font-family: roboto;
-    background-color: #a5c7ff;
+    background-color: #ce7349;
 }
 .bg-inc{
     background: url('../imgs/bg.png')no-repeat center center fixed;
@@ -304,7 +304,7 @@ code {
     float:left;
     height: 30px;
     width: 30px;
-    background-color: #a5c7ff;
+    background-color: #cd724a;
     margin-right:3px;
     text-align: center;
     color:white;
@@ -327,7 +327,21 @@ code {
     border-radius: 0px !important;
 }
 
-.dropdown-item:hover{
-    transition: all .1s linear;
-    background-color: #1dade2 !important;
+.nav-link{
+    color: white;
 }
+
+.nav-link:hover{
+    color: lightgrey;
+}
+
+.nav-link.active, .nav-link:hover{
+    background-color: #ce7349 !important;
+}
+
+.sidebar{
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,.16), 0 4px 10px 0 rgba(0,0,0,.12);
+    -webkit-box-shadow: 0 4px 5px 0 rgba(0,0,0,.16), 0 4px 10px 0 rgba(0,0,0,.12);
+}
+
+/* For current Skin */

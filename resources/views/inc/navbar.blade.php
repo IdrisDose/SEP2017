@@ -17,18 +17,6 @@
                     </li>
                 @endif
 
-                @auth
-                    @if(Request::is('dashboard'))
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{{route('dashboard')}}">Dashboard</a>
-                        </li>
-                    @else
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{route('dashboard')}}">Dashboard</a>
-                        </li>
-                    @endif
-                @endauth
-
                 @if(Request::is('sponsors'))
                     <li class="nav-item active">
                         <a class="nav-link " href="{{route('sponsors')}}">Sponsors <span class="sr-only">(current)</span></a>
@@ -58,6 +46,17 @@
                         <a class="nav-link" href="{{route('tasks')}}">Tasks </a>
                     </li>
                 @endif
+                @auth
+                    @if(Request::is('dashboard'))
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{route('dashboard')}}">Dashboard</a>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('dashboard')}}">Dashboard</a>
+                        </li>
+                    @endif
+                @endauth
             </ul>
 
             <ul class="nav navbar-nav">

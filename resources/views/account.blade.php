@@ -25,22 +25,22 @@
             <div class="col-lg-8 push-lg-4">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-expanded="true">Profile</a>
+                        <a class="nav-link active tab" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-expanded="true">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="tasks-tab" data-toggle="tab" href="#tasks" role="tab" aria-controls="tasks" aria-expanded="true">Tasks</a>
+                        <a class="nav-link tab" id="tasks-tab" data-toggle="tab" href="#tasks" role="tab" aria-controls="tasks" aria-expanded="true">Tasks</a>
                     </li>
                     @auth
                         @if ($user->id==Auth::user()->id)
                             <li class="nav-item">
-                                <a class="nav-link" id="edit-tab" data-toggle="tab" href="#edit" role="tab" aria-controls="edit">Edit Details</a>
+                                <a class="nav-link tab" id="edit-tab" data-toggle="tab" href="#edit" role="tab" aria-controls="edit">Edit Details</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" id="edit-tab" data-toggle="tab" href="#editlogin" role="tab" aria-controls="editlogin">Edit login</a>
+                                <a class="nav-link tab" id="edit-tab" data-toggle="tab" href="#editlogin" role="tab" aria-controls="editlogin">Edit login</a>
                             </li>
                         @endif
                     @endauth
-                    @if (Auth::user()->isSponsor())
+                    @if (Auth::user()->isSponsor() && $user->isStudent())
                         <li class="nav-item">
                             <a class="nav-link" href="Sponsor" >Sponsor</a>
                         </li>
@@ -158,7 +158,6 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label"></label>
                                         <div class="col-lg-9">
-                                            <input type="reset" class="btn btn-secondary" value="Cancel">
                                             <input type="submit" class="btn btn-primary" value="Save Changes">
                                         </div>
                                     </div>
@@ -189,7 +188,6 @@
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label"></label>
                                         <div class="col-lg-9">
-                                            <input type="reset" class="btn btn-secondary" value="Cancel">
                                             <input type="button" class="btn btn-primary" value="Save Changes">
                                         </div>
                                     </div>

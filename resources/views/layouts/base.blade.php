@@ -8,7 +8,16 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet">
+
+    <!-- Layout CSS -->
     <link rel="stylesheet" href="{{ asset('css/master.css') }}">
+
+    <!-- Theme CSS for colors -->
+    <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
+
+    @if(Route::is('dashboard'))
+        <link rel="stylesheet" href="{{ asset('css/style.dashboard.css') }}">
+    @endif
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>GoFundyMe</title>
 </head>
@@ -22,12 +31,14 @@
 @else
     <body class="clearfix bg-inc2">
 @endif
+            @if(!(Route::is('dashboard')))
+                <header>
+                    @include('inc.navbar')
+                </header>
+            @endif
 
-            <header>
-                @include('inc.navbar')
-            </header>
             @if(Route::is('dashboard'))
-                <main class="animate fadeIn bg-dark" style="height: 100vh">
+                <main class="animate fadeIn light-orange" style="height: 100vh">
                     <div class="container-fluid">
                         @yield('content')
                     </div>
@@ -38,14 +49,15 @@
                 </main>
             @endif
 
-            <footer class="footer">
-                <div class="container">
-                    <div class="text-muted">&copy;GoFundy.Me 2017 | Powered by <a class="footer-link" href="https://laravel.com">Laravel</a> | <a class="footer-link" href="{{route('about')}}">About Us</a> | <a class="footer-link" href="{{route('help')}}">Help</a></div>
-                </div>
-            </footer>
+            @if(!(Route::is('dashboard')))
+                <footer class="footer">
+                    <div class="container">
+                        <div class="text-muted">&copy;GoFundy.Me 2017 | Powered by <a class="footer-link" href="https://laravel.com">Laravel</a> | <a class="footer-link" href="{{route('about')}}">About Us</a> | <a class="footer-link" href="{{route('help')}}">Help</a></div>
+                    </div>
+                </footer>
+            @endif
 
-
-
+            
     @include('inc.javascript')
 </body>
 </html>
