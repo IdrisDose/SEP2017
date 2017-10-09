@@ -17,11 +17,16 @@
 }
 
 .tab.active{
+    color:white;
     background-color: white !important;
 }
 
 .tab:hover{
+    color:white;
     background: transparent !important;
+}
+.nav-link.active{
+    color:white;
 }
 
 label, h4,h1,h2,h3,th{

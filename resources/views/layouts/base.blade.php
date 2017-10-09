@@ -26,7 +26,7 @@
 
     Something make look broken without it, please enable it.
 </noscript>
-        @if(Route::is('index'))
+        @if(Route::is('index') || Route::is('profile'))
             <body class="clearfix bg-inc">
         @else
             <body class="clearfix">
