@@ -75,6 +75,7 @@ section.dashboard-counts .count-title span{
 
 #acctype{
     color: white !important;
+    margin-bottom: 1rem;
 }
 
 #acctype option{

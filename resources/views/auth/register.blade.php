@@ -42,7 +42,7 @@
 
         <div class="form-group">
             <label for="acctype" class="sr-only">Account Type</label>
-            <select class="form-control" id="acctype" name="acctype">
+            <select class="form-control mdb-select" id="acctype" name="acctype">
               <option value="dis" selected disabled>Account Type...</option>
               <option value="student">Student</option>
               <option value="sponsor">Sponsor</option>
