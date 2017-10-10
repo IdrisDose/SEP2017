@@ -249,6 +249,7 @@ code {
     margin-right: 20px;
     margin-left: 5%;
     background-color: rgba(12,12,12,.9);
+    font-size: 24px !important;
 }
 .welcome-container-2{
     color:rgba(255,255,255,.7);
@@ -358,3 +359,7 @@ code {
 }
 
 /* For current Skin */
+
+.pad-4{
+    padding:4%;
+}

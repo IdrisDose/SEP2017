@@ -12,7 +12,7 @@
         <div class="row">
             <div class="animated fadeIn welcome-container-1 grad-content-bg">
 
-                <div class="justify-content-sm-center center-text mt-3">
+                <div class="justify-content-sm-center center-text mt-3 pad-4">
                     <h2>GoFundyMe</h2>
                     <p class="mt-5">
                         GoFundyMe is a crowdsourcing project aimed at connecting students and compaines togethter to help a student in need progress through their degree while also getting working that the sponsors need completed.
