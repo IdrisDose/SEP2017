@@ -56,6 +56,7 @@
                     </div>
                 </div>
             </section>
+
             <!-- Header Section-->
             <section class="statistics section-padding">
               <div class="container-fluid">
@@ -85,6 +86,36 @@
                 </div>
               </div>
             </section>
+
+            <section id="sponsor" class="statistics section-padding">
+              <div class="container-fluid">
+                <div class="row d-flex align-items-stretch">
+                  <div class="col-1"></div>
+                  <div class="col-10">
+                    <!-- User Actibity-->
+                    <div class="wrapper sponsor-form">
+                    <h2 class="db-section-title center-text">Sponsor a Student</h2>
+                      <form class="" action="{{ route('sponsor.create') }}" method="POST">
+                          {{ csrf_field() }}
+                          <div class="form-group">
+                              <label for="studentid">Student</label>
+                              <select class="form-control" name="studentid">
+                                  @foreach($students as $student)
+                                      <option value="{{$student->id}}">{{$student->name}} (ID: {{$student->id}})</option>
+                                  @endforeach
+                              </select>
+                          </div>
+                          <input type="hidden" name="sponsorid" value="{{Auth::user()->id}}">
+                          <input type="hidden" name="active" value="1">
+                          <button type="submit" class="btn btn-primary" name="button">Submit</button>
+                      </form>
+                    </div>
+                  </div>
+                  <div class="col-1"></div>
+                </div>
+              </div>
+            </section>
+
             <section class="dashboard-header section-padding">
                 <div class="container-fluid">
                     <div class="row d-flex align-items-md-stretch">
@@ -92,40 +123,15 @@
                         <!-- To Do List-->
                         <div class="col-4">
                             <div class="wrapper to-do">
-                                <h2 class="db-section-title">List of Tasks</h2>
+                                <h2 class="db-section-title">List of Students You're Sponsoring</h2>
                                 <ul class="check-lists list-unstyled">
-                                    <li class="d-flex align-items-center">
-                                        <input type="checkbox" id="list-1" name="list-1" class="form-control-custom">
-                                        <label for="list-1">Similique sunt in culpa qui officia</label>
-                                    </li>
-                                    <li class="d-flex align-items-center">
-                                        <input type="checkbox" id="list-2" name="list-2" class="form-control-custom">
-                                        <label for="list-2">Ed ut perspiciatis unde omnis iste</label>
-                                    </li>
-                                    <li class="d-flex align-items-center">
-                                        <input type="checkbox" id="list-3" name="list-3" class="form-control-custom">
-                                        <label for="list-3">At vero eos et accusamus et iusto </label>
-                                    </li>
-                                    <li class="d-flex align-items-center">
-                                        <input type="checkbox" id="list-4" name="list-4" class="form-control-custom">
-                                        <label for="list-4">Explicabo Nemo ipsam voluptatem</label>
-                                    </li>
-                                    <li class="d-flex align-items-center">
-                                        <input type="checkbox" id="list-5" name="list-5" class="form-control-custom">
-                                        <label for="list-5">Similique sunt in culpa qui officia</label>
-                                    </li>
-                                    <li class="d-flex align-items-center">
-                                        <input type="checkbox" id="list-6" name="list-6" class="form-control-custom">
-                                        <label for="list-6">At vero eos et accusamus et iusto </label>
-                                    </li>
-                                    <li class="d-flex align-items-center">
-                                        <input type="checkbox" id="list-7" name="list-7" class="form-control-custom">
-                                        <label for="list-7">Similique sunt in culpa qui officia</label>
-                                    </li>
-                                    <li class="d-flex align-items-center">
-                                        <input type="checkbox" id="list-8" name="list-8" class="form-control-custom">
-                                        <label for="list-8">Ed ut perspiciatis unde omnis iste</label>
-                                    </li>
+                                    @foreach($students as $student)
+                                        @if($student->hasSponsorship($student->id))
+                                            <li class="d-flex align-items-center text-light-orange">
+                                                <label for="">{{$student->name}} (ID: {{$student->id}})</label>
+                                            </li>
+                                        @endif
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -133,6 +139,9 @@
                     </div>
                 </div>
             </section>
+
+
+
             <footer class="footer">
                 <div class="container">
                     <div class="text-muted">&copy;GoFundy.Me 2017 | Powered by <a class="footer-link" href="https://laravel.com">Laravel</a> | <a class="footer-link" href="{{route('about')}}">About Us</a> | <a class="footer-link" href="{{route('help')}}">Help</a> <span class=" pull-right">Design by <a class="footer-link" href="https://bootstrapious.com">Bootstrapious</a></span> </div>

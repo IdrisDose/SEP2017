@@ -23,10 +23,11 @@ Auth::routes();
 
 Route::group(['middleware'=>'auth'],function(){
     Route::get('/admin', 'HomeController@admin')->name('admin');
-    Route::get('/dashboard', 'HomeController@dash')->name('dashboard');
-    Route::get('/task/{id}', 'TaskController@task')->name('task');
-    Route::get('/tasks', 'TaskController@tasklist')->name('tasks');
-    Route::get('/newtask', 'TaskController@taskform')->name('newtask');
-    Route::post('/tasks', 'TaskController@newtask')->name('task.create');
+    Route::get('/dashboard/{type}', 'HomeController@dash')->name('dashboard');
+    Route::get('/task/{id}', 'FunctionController@task')->name('task');
+    Route::get('/tasks', 'FunctionController@tasklist')->name('tasks');
+    Route::get('/newtask', 'FunctionController@taskform')->name('newtask');
+    Route::post('/tasks', 'FunctionController@newtask')->name('task.create');
     Route::put('/updateprofile/{id}', 'PageController@editaccount')->name('profile.update');
+    Route::post('/sponsor', 'FunctionController@newsponsor')->name('sponsor.create');
 });

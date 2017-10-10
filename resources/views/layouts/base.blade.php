@@ -26,6 +26,8 @@
 
     Something make look broken without it, please enable it.
 </noscript>
+
+
 @if(Route::is('profile') || Route::is('students') || Route::is('sponsors') || Route::is('tasks'))
     <body class="clearfix bg-inc2">
 @elseif(!(Route::is('dashboard')))

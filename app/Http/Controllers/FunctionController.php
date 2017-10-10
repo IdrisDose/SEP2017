@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Task;
+use App\Sponsorship;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; //add auth package
 
-class TaskController extends Controller
+class FunctionController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -41,6 +42,16 @@ class TaskController extends Controller
             $user->tasks()->create($data);
         }
         return redirect(route('tasks'));
+
+    }
+
+    public function newsponsor(Request $req){
+        $data = $req->all();
+        $sponsorship = new Sponsorship();
+        if(Auth::user()->isSponsor()){
+            $sponsorship->create($data);
+        }
+        return redirect(route('index'));
 
     }
 }

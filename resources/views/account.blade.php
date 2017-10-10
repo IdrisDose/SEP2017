@@ -8,18 +8,18 @@
             <div class="col-lg-4 pull-lg-8 text-xs-center">
                 <h4 class="center-text">{{$user->name}} (ID: {{$user->id}})</h4>
                 <img src="//placehold.it/150" class="mx-auto d-block img-fluid rounded-circle" alt="avatar">
-
+                {{--
                 @auth
                     @if ($user->id==Auth::user()->id)
                         <div class="mt-3">
                             <h6 class="m-t-2">Upload a different photo</h6>
                             <label class="custom-file">
-                                <input type="file" id="file" class="custom-file-input">
+                                <input type="file" id="file" class="custom-file-input dark-grey" disabled>
                                 <span class="custom-file-control">Choose file</span>
                             </label>
                         </div>
                     @endif
-                @endauth
+                @endauth--}}
             </div>
 
             <div class="col-lg-8 push-lg-4">
@@ -34,15 +34,17 @@
                         @if ($user->id==Auth::user()->id)
                             <li class="nav-item">
                                 <a class="nav-link tab" id="edit-tab" data-toggle="tab" href="#edit" role="tab" aria-controls="edit" onclick="checkScrollBar()">Edit Details</a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
                             </li>
+                            <!--
                             <li class="nav-item">
                                 <a class="nav-link tab" id="edit-tab" data-toggle="tab" href="#editlogin" role="tab" aria-controls="editlogin">Edit login</a>
-                            </li>
+                            </li>-->
                         @endif
                     @endauth
                     @if (Auth::User() && Auth::user()->isSponsor() && $user->isStudent())
                         <li class="nav-item">
-                            <a class="nav-link" href="Sponsor" >Sponsor</a>
+                            <a class="nav-link" href="/dashboard#sponsor">Sponsor</a>
                         </li>
                     @endif
                 </ul>
@@ -63,7 +65,15 @@
                                 <h4 class="mt-2"><span class="fa fa-clock-o ion-clock pull-xs-right"></span> About</h4>
                                 <p>
                                     Website: {{$user->website}}<br/>
-                                    Company: {{$user->company}}
+                                    Company: {{$user->company}}<br/>
+                                    Account Type: {{$user->acctype}}<br/>
+                                    @if($user->isStudent())
+                                        Has Sponsorship? {{$user->hasSponsorship($user->id)}}
+                                    @endif
+                                    @if($user->isSponsor())
+                                        Has Sponsored? {{$user->hasSponsoring($user->id)}}
+                                    @endif
+                                </br/>
                                 </br/>
                                 </p>
                             </div>
@@ -144,6 +154,8 @@
                                             <input class="form-control" type="text" value="{{$user->company}}" name="company">
                                         </div>
                                     </div>
+
+                                    @if(Auth::user() && Auth::user()->isStudent())
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label">Qualification</label>
                                         <div class="col-lg-9">
@@ -155,6 +167,7 @@
                                             </select>
                                         </div>
                                     </div>
+                                    @endif
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label"></label>
                                         <div class="col-lg-9">
@@ -164,6 +177,7 @@
                                 </form>
                             </div>
 
+                            <!--
                             <div class="tab-pane fade" id="editlogin" role="tabpanel" aria-labelledby="edilogin-tab">
                                 <h4 class="m-y-2">Edit Login</h4>
                                 <form role="form">
@@ -192,7 +206,7 @@
                                         </div>
                                     </div>
                                 </form>
-                            </div>
+                            </div>-->
                         @endif
                     @endauth
                 </div>

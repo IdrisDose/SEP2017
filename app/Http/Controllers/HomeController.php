@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Sponsorship;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth; //add auth package
 
 class HomeController extends Controller
 {
@@ -28,7 +30,14 @@ class HomeController extends Controller
     public function admin(){
         return view('admin');
     }
-    public function dash(){
-        return view('dashboard');
+    public function dash($type){
+        $students = User::where('acctype','=','student')->get();
+        $sponsorships = Sponsorship::all();
+        if(Auth::user()->isStudent()){
+            return view('std-dash');
+        }elseif(Auth::user()->isSponsor()){
+            return view('spn-dash', compact('students'))->with('sponsorships',$sponsorships);
+        }
+        return view('index');
     }
 }

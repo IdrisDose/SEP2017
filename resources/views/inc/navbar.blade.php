@@ -49,11 +49,11 @@
                 @auth
                     @if(Request::is('dashboard'))
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{route('dashboard')}}">Dashboard</a>
+                            <a class="nav-link" href="{{route('dashboard',Auth::user()->acctype)}}">Dashboard</a>
                         </li>
                     @else
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('dashboard')}}">Dashboard</a>
+                            <a class="nav-link" href="{{route('dashboard',Auth::user()->acctype)}}">Dashboard</a>
                         </li>
                     @endif
                 @endauth
@@ -73,7 +73,7 @@
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> {{Auth::user()->name}}</a>
                         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item custdp" href="{{route('profile',Auth::user()->id)}}">Profile</a>
-                            <a class="dropdown-item custdp" href="{{route('dashboard')}}">Dashboard</a>
+                            <a class="dropdown-item custdp" href="{{route('dashboard',Auth::user()->acctype)}}">Dashboard</a>
                             <!-- <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Something else here</a> -->
                         </div>

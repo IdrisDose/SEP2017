@@ -54,8 +54,11 @@ label, h4,h1,h2,h3,th{
 textarea{
     border-color: #bdbdbd !important;
 }
-.form-control{
+.form-control, .form-control:focus{
     color:white;
+}
+ select.form-control,select.form-control:focus {
+    color:black;
 }
 
 table.table a{
