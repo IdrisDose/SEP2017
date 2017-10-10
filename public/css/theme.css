@@ -57,7 +57,7 @@ textarea{
 .form-control, .form-control:focus{
     color:white;
 }
- select.form-control,select.form-control:focus {
+ select.form-control, select.form-control:focus {
     color:black;
 }
 
@@ -71,4 +71,12 @@ section.dashboard-counts .count-title span{
 
 .table-striped tbody tr:hover{
     background-color: #ce7349;
+}
+
+#acctype{
+    color: white !important;
+}
+
+#acctype option{
+    color: black !important;
 }
