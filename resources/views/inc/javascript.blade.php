@@ -2,7 +2,9 @@
 <script src="{{asset('js/popper.min.js')}}" type="text/javascript" ></script>
 <script src="{{asset('js/tether.min.js')}}" type="text/javascript" ></script>
 <script src="{{asset('js/bootstrap.min.js')}}" type="text/javascript" ></script>
+<script src="{{asset('js/jquey.is-scrollable.min.js')}}"></script>
 <script src="{{asset('js/jquery.nicescroll.min.js')}}"></script>
+
 @if(Route::is('dashboard'))
     <script src="{{asset('js/jquery.cookie.js')}}"> </script>
     <script src="{{asset('js/grasp_mobile_progress_circle-1.0.0.min.js')}}"></script>

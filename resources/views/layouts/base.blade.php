@@ -26,13 +26,13 @@
 
     Something make look broken without it, please enable it.
 </noscript>
-        @if(Route::is('profile') || Route::is('students') || Route::is('sponsors') || Route::is('tasks'))
-            <body class="clearfix bg-inc2">
-        @elseif(!(Route::is('dashboard')))
-            <body class="clearfix bg-inc">
-        @else
-            <body class="clearfix bg-inc">
-        @endif
+@if(Route::is('profile') || Route::is('students') || Route::is('sponsors') || Route::is('tasks'))
+    <body class="clearfix bg-inc2">
+@elseif(!(Route::is('dashboard')))
+    <body class="clearfix bg-inc">
+@else
+    <body class="clearfix bg-inc">
+@endif
             @if(!(Route::is('dashboard')))
                 <header>
                     @include('inc.navbar')
@@ -40,7 +40,7 @@
             @endif
 
             @if(Route::is('dashboard'))
-                <main class="animate fadeIn light-orange" style="height: 100vh">
+                <main class="animate fadeIn light-orange">
                     <div class="container-fluid">
                         @yield('content')
                     </div>
@@ -48,10 +48,12 @@
             @else
                 <main class="animate fadeIn">
                     @yield('content')
+
+
                 </main>
             @endif
 
-            @if(!(Route::is('dashboard')))
+            @if(!(Route::is('dashboard') || Route::is('profile')))
                 <footer class="footer">
                     <div class="container">
                         <div class="text-muted">&copy;GoFundy.Me 2017 | Powered by <a class="footer-link" href="https://laravel.com">Laravel</a> | <a class="footer-link" href="{{route('about')}}">About Us</a> | <a class="footer-link" href="{{route('help')}}">Help</a></div>

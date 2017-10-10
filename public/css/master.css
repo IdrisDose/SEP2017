@@ -8,11 +8,27 @@ html {
 }
 body {
     /* Margin bottom by footer height */
+    position:relative;
+    height: 100%;
     font-family: roboto;
     background-color: #F4F7FA;
 }
 
-
+main{
+    position: relative;
+    height:calc(100vh - 75px);
+    margin-bottom: -60px;
+}
+.height-change-listener {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border: 0;
+  background-color: transparent;
+}
 .bg-inc{
     background: url('../imgs/bg.png')no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -45,7 +61,7 @@ body {
 }
 
 .footer {
-  position: absolute;
+  position: static;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
@@ -258,7 +274,6 @@ code {
     margin-right: 20px;
 }
 .container-profile{
-
 }
 
 .grad-content-bg{

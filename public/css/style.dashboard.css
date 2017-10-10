@@ -75,7 +75,6 @@ table {
   width: calc(100% - 200px);
   background-color: transparent;
   min-height: 100vh;
-  padding-bottom: 50px;
 }
 
 .page.active {

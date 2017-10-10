@@ -30,8 +30,8 @@
                             <td>{{$task->id}}</td>
                             <td><a href="/task/{{$task->id}}">{{$task->name}}</a></td>
                             <td>${{$task->price}} AUD</td>
-                            <td>{{$task->completed}}</td>
-                            <td>{{$task->active}}</td>
+                            <td>{{$task->isComplete()}}</td>
+                            <td>{{$task->isActive()}}</td>
                             <td><a href="/task/{{$task->id}}">LINK</a></td>
                         </tr>
                     @endforeach

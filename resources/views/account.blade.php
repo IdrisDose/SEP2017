@@ -33,7 +33,7 @@
                     @auth
                         @if ($user->id==Auth::user()->id)
                             <li class="nav-item">
-                                <a class="nav-link tab" id="edit-tab" data-toggle="tab" href="#edit" role="tab" aria-controls="edit">Edit Details</a>
+                                <a class="nav-link tab" id="edit-tab" data-toggle="tab" href="#edit" role="tab" aria-controls="edit" onclick="checkScrollBar()">Edit Details</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link tab" id="edit-tab" data-toggle="tab" href="#editlogin" role="tab" aria-controls="editlogin">Edit login</a>
