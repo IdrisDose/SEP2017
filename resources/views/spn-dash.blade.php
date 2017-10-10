@@ -25,7 +25,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-3">
-                                <div class="wrapper count-title d-flex">
+                                <div class="wrapper count-title d-flex purple">
                                     <div class="icon"><i class="icon-user"></i></div>
                                     <div class="name"><strong class="text-uppercase">Tasks Pending</strong>
                                         <div class="count-number">0</div>
@@ -33,15 +33,15 @@
                                 </div>
                             </div>
                             <div class="col-3">
-                                <div class="wrapper count-title d-flex">
+                                <div class="wrapper count-title d-flex green">
                                     <div class="icon"><i class="icon-bill"></i></div>
-                                    <div class="name"><strong class="text-uppercase">Tasks Complete</strong><span>Last 7 days</span>
+                                    <div class="name"><strong class="text-uppercase">Tasks Complete</strong>
                                         <div class="count-number">0</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-3">
-                                <div class="wrapper count-title d-flex">
+                                <div class="wrapper count-title d-flex blue">
                                     <div class="icon"><i class="icon-padnote"></i></div>
                                     <div class="name"><strong class="text-uppercase">Balance</strong>
                                         <div class="count-number">${{Auth::user()->balance}} AUD</div>
@@ -49,7 +49,7 @@
                                 </div>
                             </div>
                             <div class="col-3">
-                                <div class="wrapper count-title d-flex">
+                                <div class="wrapper count-title d-flex red">
                                     <div class="icon"><i class="icon-check"></i></div>
                                     <div class="name"><strong class="text-uppercase">Sponsoring</strong>
                                         <div class="count-number">{{Auth::user()->sponsoring()}}</div>
@@ -79,11 +79,11 @@
                                     <div class="number">0</div>
                                     <h3 class="h4 display db-section-title">Social Users</h3>
                                     <div class="progress">
-                                        <div role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar bg-primary"></div>
+                                        <div role="progressbar" style="width: {{ Auth::user()->getSponsorRate() }}%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar bg-primary"></div>
                                     </div>
                                     <div class="page-statistics d-flex justify-content-between">
                                         <div class="page-visites db-section-title"><span>Tasks Completed</span><strong>0</strong></div>
-                                        <div class="new-visites db-section-title"><span>Completion Rate</span><strong>0%</strong></div>
+                                        <div class="new-visites db-section-title"><span>Sponsored Students</span><strong>{{ Auth::user()->getSponsorRate() }}%</strong></div>
                                     </div>
                                 </div>
                             </div>
@@ -123,7 +123,7 @@
                     </div>
                 </section>
 
-                <section class="dashboard-header section-padding">
+                <section class="dashboard-header section-padding mb-cust-db">
                     <div class="container-fluid">
                         <div class="row d-flex align-items-md-stretch">
                             <div class="col-4"></div>
@@ -134,12 +134,10 @@
                                     <ul class="check-lists list-unstyled">
                                         @foreach($sponsorships as $sponsorship)
                                             @if($sponsorship->sponsor->id == Auth::user()->id)
-                                                {{
-                                                    $student = $sponsorship->student
-                                                }}
-                                                {{
-                                                    $uid = $student->id
-                                                }}
+                                                @php
+                                                    $student = $sponsorship->student;
+                                                    $uid = $student->id;
+                                                @endphp
                                                 <li><label>{{$student->name}} (ID:{{$uid}} ) - SPONSORS: {{$student->sponsoredBy()}} - <a href="/profile/{{$uid}}">LINK</a></label></li>
                                             @endif
                                         @endforeach

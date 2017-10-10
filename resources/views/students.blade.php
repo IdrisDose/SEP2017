@@ -4,7 +4,7 @@
   <!-- Begin page content -->
     <div class="container">
 
-        <div class="mt-3">
+        <div class="mt-1">
             <h1>Student List</h1>
         </div>
         <p class="lead">The List of current and active students, more students will come and go as they complete and enter new degrees.</p>
@@ -24,7 +24,7 @@
                 </thead>
                 <tbody>
                     @foreach($users as $user)
-                        <tr>
+                        <tr onclick="window.document.location='/profile/{{$user->id}}';" style="cursor: pointer;">
                             <td>{{$user->name}}</td>
                             <td>{{$user->getDegree()}}</td>
                             <td>0</td>

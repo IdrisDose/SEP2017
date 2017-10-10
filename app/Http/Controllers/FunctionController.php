@@ -51,7 +51,7 @@ class FunctionController extends Controller
         if(Auth::user()->isSponsor()){
             $sponsorship->create($data);
         }
-        return redirect(route('dashboard'));
+        return back();
 
     }
 }

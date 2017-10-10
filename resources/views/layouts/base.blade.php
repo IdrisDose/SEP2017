@@ -47,11 +47,15 @@
                         @yield('content')
                     </div>
                 </main>
-            @else
+            @elseif(Route::is('index'))
                 <main class="animate fadeIn">
                     @yield('content')
-
-
+                </main>
+            @else
+                <main class="animate fadeIn">
+                    <div class="content-wrapper grad-content-bg">
+                        @yield('content')
+                    </div>
                 </main>
             @endif
 

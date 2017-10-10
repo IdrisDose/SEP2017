@@ -378,3 +378,23 @@ code {
 .pad-4{
     padding:4%;
 }
+
+.mb-cust-db{
+    margin-bottom: 13rem!important
+}
+
+
+.fl-right{
+    float: right !important;
+}
+
+.fl-left{
+    float: left !important;
+}
+
+.content-wrapper{
+    padding-top:1rem!important;
+    height:calc(100% - 75px);
+    width:50%;
+    margin: 0 auto;
+}

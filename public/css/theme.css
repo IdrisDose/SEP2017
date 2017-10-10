@@ -64,3 +64,11 @@ textarea{
 table.table a{
     color:white;
 }
+
+section.dashboard-counts .count-title span{
+    color: #4e4e4e !important;
+}
+
+.table-striped tbody tr:hover{
+    background-color: #ce7349;
+}
