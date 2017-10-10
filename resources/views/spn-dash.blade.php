@@ -51,8 +51,8 @@
                             <div class="col-3">
                                 <div class="wrapper count-title d-flex">
                                     <div class="icon"><i class="icon-check"></i></div>
-                                    <div class="name"><strong class="text-uppercase">Sponsors</strong>
-                                        <div class="count-number">0</div>
+                                    <div class="name"><strong class="text-uppercase">Sponsoring</strong>
+                                        <div class="count-number">{{Auth::user()->sponsoring()}}</div>
                                     </div>
                                 </div>
                             </div>
@@ -68,8 +68,8 @@
                             <div class="col-6">
                                 <!-- Income-->
                                 <div class="wrapper income text-center align-middle">
-                                    <div class="number">${{Auth::user()->balance}} AUD</div><strong class="text-primary">All Income</strong>
-                                    <p>Total amount recieved via tasks and sponsorships</p>
+                                    <div class="number">${{Auth::user()->balance}} AUD</div><strong class="text-primary">Balance</strong>
+                                    <p>Total account balance</p>
                                 </div>
                             </div>
                             <div class="col-6">
@@ -94,8 +94,8 @@
                 <section id="sponsor" class="statistics section-padding">
                     <div class="container-fluid">
                         <div class="row d-flex align-items-stretch">
-                            <div class="col-1"></div>
-                            <div class="col-10">
+                            <div class="col"></div>
+                            <div class="col-4">
                                 <!-- User Actibity-->
                                 <div class="wrapper sponsor-form">
                                     <h2 class="db-section-title center-text">Sponsor a Student</h2>
@@ -114,11 +114,11 @@
                                         </div>
                                         <input type="hidden" name="sponsor_id" value="{{Auth::user()->id}}">
                                         <input type="hidden" name="active" value="1">
-                                        <button id="sponsSubmit" type="submit" class="btn btn-primary" name="sponsSubmit">Submit</button>
+                                        <button id="sponsSubmit" type="submit" class="btn btn-primary pull-right mx-auto mb-3" name="sponsSubmit">Submit</button>
                                     </form>
                                 </div>
                             </div>
-                            <div class="col-1"></div>
+                            <div class="col"></div>
                         </div>
                     </div>
                 </section>
@@ -134,7 +134,13 @@
                                     <ul class="check-lists list-unstyled">
                                         @foreach($sponsorships as $sponsorship)
                                             @if($sponsorship->sponsor->id == Auth::user()->id)
-                                                <li><label>{{$sponsorship->student->name}}</label></li>
+                                                {{
+                                                    $student = $sponsorship->student
+                                                }}
+                                                {{
+                                                    $uid = $student->id
+                                                }}
+                                                <li><label>{{$student->name}} (ID:{{$uid}} ) - SPONSORS: {{$student->sponsoredBy()}} - <a href="/profile/{{$uid}}">LINK</a></label></li>
                                             @endif
                                         @endforeach
                                     </ul>

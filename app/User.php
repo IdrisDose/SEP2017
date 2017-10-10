@@ -40,6 +40,14 @@ class User extends Authenticatable
         return $this->active?'Yes':'No';
     }
 
+    public function isSponsored(){
+        return $this->sponsoredBy()>0?'Yes':'No';
+    }
+
+    public function isSponsoring(){
+        return $this->sponsoring()>0?'Yes':'No';
+    }
+
     public function getDegree(){
         $id = $this->degree_id;
         $degree = Degree::where('id','=',$id)->first();
@@ -49,17 +57,28 @@ class User extends Authenticatable
     public function tasks(){
         return $this->hasMany(Task::class);
     }
+
     public function alreadySponsored($id){
         $sponsor = Sponsorship::where('student_id',$this->id)->where('sponsor_id',$id)->get();
         $count = count($sponsor);
         return ($count!=0);
     }
     public function sponsoredBy(){
-        return Sponsorship::where('student_id','=',$this->id);
+        $list = Sponsorship::where('student_id',$this->id)->get();
+        return count($list);
     }
 
     public function sponsoring(){
-        return Sponsorship::where('sponsor_id','=',$this->id);
+        $list = Sponsorship::where('sponsor_id',$this->id)->get();
+        $count =  count($list);
+        return $count;
     }
 
+    /*
+        I know this is bad naming but...
+        returns list of sponsors
+    */
+    public function student_sponsor_list(){
+        return Sponsorship::where('student_id',$this->id)->get();
+    }
 }

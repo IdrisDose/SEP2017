@@ -28,7 +28,7 @@
                         <a class="nav-link active tab" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-expanded="true">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link tab" id="tasks-tab" data-toggle="tab" href="#tasks" role="tab" aria-controls="tasks" aria-expanded="true">Tasks</a>
+                        <a class="nav-link tab" id="tasks-tab" data-toggle="tab" href="#tasks" role="tab" aria-controls="tasks" aria-expanded="true">Sponsors</a>
                     </li>
                     @auth
                         @if ($user->id==Auth::user()->id)
@@ -43,9 +43,11 @@
                         @endif
                     @endauth
                     @if (Auth::User() && Auth::user()->isSponsor() && $user->isStudent())
-                        <li class="nav-item">
-                            <a class="nav-link" href="/dashboard#sponsor">Sponsor</a>
-                        </li>
+                        @if(!($user->alreadySponsored(Auth::user()->id)))
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{route('dashboard')}}">Sponsor</a>
+                            </li>
+                        @endif
                     @endif
                 </ul>
 
@@ -53,12 +55,12 @@
                     <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <h4 class="my-2">User Profile</h4>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-6">
                                 <span class="tag tag-primary"><i class="fa fa-user"></i> 0 Followers</span>
                                 <span class="tag tag-success"><i class="fa fa-cog"></i> 0 Task Complete</span>
                                 <span class="tag tag-danger"><i class="fa fa-eye"></i> 0 Views</span>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-6">
 
                             </div>
                             <div class="col-md-12">
@@ -68,10 +70,10 @@
                                     Company: {{$user->company}}<br/>
                                     Account Type: {{$user->acctype}}<br/>
                                     @if($user->isStudent())
-                                        Has Sponsorship? {{$user->hasSponsorship($user->id)}}
+                                        Has Sponsorship? {{$user->isSponsored()}}
                                     @endif
                                     @if($user->isSponsor())
-                                        Has Sponsored? {{$user->hasSponsoring($user->id)}}
+                                        Has Sponsored? {{$user->isSponsoring()}}
                                     @endif
                                 </br/>
                                 </br/>
@@ -84,36 +86,16 @@
                     <div class="tab-pane fade" id="tasks" role="tabpanel" aria-labelledby="tasks-tab">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4 class="mt-2"><span class="fa fa-clock-o ion-clock pull-xs-right"></span> Current Tasks</h4>
+                                <h4 class="mt-2"><span class="fa fa-clock-o ion-clock pull-xs-right"></span> Current Sponsors</h4>
                                 <table class="table table-hover table-striped">
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <strong>Abby</strong> joined ACME Project Team in <strong>`Collaboration`</strong>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Gary</strong> deleted My Board1 in <strong>`Discussions`</strong>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Kensington</strong> deleted MyBoard3 in <strong>`Discussions`</strong>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>John</strong> deleted My Board1 in <strong>`Discussions`</strong>
-                                            </td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Skell</strong> deleted his post Look at Why this is.. in <strong>`Discussions`</strong>
-                                            </td>
-                                        </tr>
+                                        @foreach($user->student_sponsor_list() as $sponsorship)
+                                            <tr>
+                                                <td>
+                                                    <strong>{{$sponsorship->sponsor->name}}</strong> sponsored this student on <strong>`{{$sponsorship->created_at}}`</strong>
+                                                </td>
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
