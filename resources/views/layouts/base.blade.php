@@ -47,7 +47,7 @@
                         @yield('content')
                     </div>
                 </main>
-            @elseif(Route::is('index'))
+            @elseif(Route::is('index') || Route::is('login') || Route::is('register') || Route::is('newtask'))
                 <main class="animate fadeIn">
                     @yield('content')
                 </main>
