@@ -81,3 +81,7 @@ section.dashboard-counts .count-title span{
 #acctype option{
     color: black !important;
 }
+
+.note-toolbar button{
+    color: black !important;
+}

@@ -4,7 +4,7 @@
 
         <div class="container">
             <div class="aligner vertical-center">
-                <div class="grad-content-bg aligner-item">
+                <div class="grad-content-bg">
                     @yield('formcontent')
                 </div>
             </div>

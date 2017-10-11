@@ -8,10 +8,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link href="{{ asset('css/mdb.min.css') }}" rel="stylesheet">
-
+    <link href="{{ asset('css/summernote-bs4.css') }}" rel="stylesheet">
     <!-- Layout CSS -->
     <link rel="stylesheet" href="{{ asset('css/master.css') }}">
-
     <!-- Theme CSS for colors -->
     <link rel="stylesheet" href="{{ asset('css/theme.css') }}">
 
@@ -20,6 +19,11 @@
     @endif
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>GoFundyMe</title>
+    <!-- include summernote css/js-->
+
+
+    @include('inc.javascript')
+    <script src="{{asset('js/summernote-bs4.min.js')}}"></script>
 </head>
 <noscript>
     This site requires Javascript. Please enable Javascript in your browser for this site.<br/>
@@ -66,8 +70,6 @@
                     </div>
                 </footer>
             @endif
-
-
-    @include('inc.javascript')
+<script src="{{asset('js/custom.js')}}" type="text/javascript" ></script>
 </body>
 </html>

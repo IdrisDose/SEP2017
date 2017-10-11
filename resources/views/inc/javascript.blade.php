@@ -14,4 +14,3 @@
     <script src="{{asset('js/front.js')}}"></script>
 @endif
 <script src="{{asset('js/mdb.min.js')}}" type="text/javascript" ></script>
-<script src="{{asset('js/custom.js')}}" type="text/javascript" ></script>
