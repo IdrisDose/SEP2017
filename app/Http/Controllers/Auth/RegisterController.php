@@ -68,6 +68,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'acctype' => $data['acctype'],
+			'about' => $data['name']. " has not filled in this field yet.",
         ]);
     }
 }

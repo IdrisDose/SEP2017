@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Degree;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth; //add auth package
+use Image; //Intervention image package
 
 
 class PageController extends Controller
@@ -37,6 +39,39 @@ class PageController extends Controller
         $users = User::where('acctype','=','student')->get();
         return view('students',compact('users'));
     }
+	public function avatar(Request $request, $id) {
+		$this->validate(request(), [
+        'avatar' => 'image',
+		]);
+		if($request->hasFile('avatar')){
+			$avatar = $request->file('avatar');
+			$filename = $id.'.'.$avatar->getClientOriginalExtension();
+			Image::make($avatar)->resize(150,150)->save(public_path('/uploads/avatars/'.$filename));
+			
+			$user = Auth::user();
+			$user->avatar = $filename;
+			$user->save();
+		}
+		return redirect()->route('profile',$id);
+	}
+	public function record(Request $request, $id) {
+		if($request->hasFile('record')){
+			$record = $request->file('record');
+			$filename = $id.'.'.$record->getClientOriginalExtension();
+			Storage::disk('records')->putFileAs('', $record, $filename); 
+			
+			$user = Auth::user();
+			$user->record = $filename;
+			$user->save();
+		}
+		return redirect()->route('profile',$user);
+	}
+	public function downloadRecord($user) {
+		$headers = [
+					'Content-Type' => 'application/pdf',
+				   ];
+		return response()->download(public_path('/downloads/records/'), $user->record, $headers);
+	}
     public function login(){
         return view('login');
     }

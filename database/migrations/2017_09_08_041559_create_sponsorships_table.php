@@ -15,13 +15,11 @@ class CreateSponsorshipsTable extends Migration
     {
         Schema::create('sponsorships', function (Blueprint $table) {
           $table->increments('id');
-          $table->integer('sponsor_id')->unsigned();
-          $table->integer('student_id')->unsigned();
+          $table->integer('sponsor_id');
+          $table->integer('student_id');
+          $table->integer('task_id');
           $table->timestamps();
           $table->boolean('active')->default('1');
-
-          $table->foreign('sponsor_id')->references('id')->on('users');
-          $table->foreign('student_id')->references('id')->on('users');
         });
     }
 

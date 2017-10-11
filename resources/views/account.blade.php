@@ -7,19 +7,23 @@
 
             <div class="col-lg-4 pull-lg-8 text-xs-center">
                 <h4 class="center-text">{{$user->name}} (ID: {{$user->id}})</h4>
-                <img src="//placehold.it/150" class="mx-auto d-block img-fluid rounded-circle" alt="avatar">
-                {{--
+                <img src="/uploads/avatars/{{$user->avatar}}" class="mx-auto d-block img-fluid rounded-circle" alt="avatar">
+
                 @auth
                     @if ($user->id==Auth::user()->id)
-                        <div class="mt-3">
-                            <h6 class="m-t-2">Upload a different photo</h6>
-                            <label class="custom-file">
-                                <input type="file" id="file" class="custom-file-input dark-grey" disabled>
-                                <span class="custom-file-control">Choose file</span>
-                            </label>
-                        </div>
+						<form enctype="multipart/form-data" action="{{route('profile.avatar',Auth::user()->id)}}" method="POST">
+							{{ csrf_field() }}
+							<div class="mt-3">
+								<h6 class="m-t-2">Upload a different photo</h6>
+								<label class="custom-file">
+									<input type="file" name="avatar" class="custom-file-input">
+									<span class="custom-file-control">Choose file</span>
+									<input type="submit" class="btn btn-primary" value="submit">
+								</label>
+							</div>
+						</form>
                     @endif
-                @endauth--}}
+                @endauth
             </div>
 
             <div class="col-lg-8 push-lg-4">
@@ -28,26 +32,22 @@
                         <a class="nav-link active tab" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-expanded="true">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link tab" id="tasks-tab" data-toggle="tab" href="#tasks" role="tab" aria-controls="tasks" aria-expanded="true">Sponsors</a>
+                        <a class="nav-link tab" id="tasks-tab" data-toggle="tab" href="#tasks" role="tab" aria-controls="tasks" aria-expanded="true">Tasks</a>
                     </li>
                     @auth
                         @if ($user->id==Auth::user()->id)
                             <li class="nav-item">
                                 <a class="nav-link tab" id="edit-tab" data-toggle="tab" href="#edit" role="tab" aria-controls="edit" onclick="checkScrollBar()">Edit Details</a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
                             </li>
-                            <!--
                             <li class="nav-item">
                                 <a class="nav-link tab" id="edit-tab" data-toggle="tab" href="#editlogin" role="tab" aria-controls="editlogin">Edit login</a>
-                            </li>-->
+                            </li>
                         @endif
                     @endauth
                     @if (Auth::User() && Auth::user()->isSponsor() && $user->isStudent())
-                        @if(!($user->alreadySponsored(Auth::user()->id)))
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('dashboard')}}">Sponsor</a>
-                            </li>
-                        @endif
+                        <li class="nav-item">
+                            <a class="nav-link" href="Sponsor" >Sponsor</a>
+                        </li>
                     @endif
                 </ul>
 
@@ -55,29 +55,25 @@
                     <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <h4 class="my-2">User Profile</h4>
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-md-6">
                                 <span class="tag tag-primary"><i class="fa fa-user"></i> 0 Followers</span>
                                 <span class="tag tag-success"><i class="fa fa-cog"></i> 0 Task Complete</span>
                                 <span class="tag tag-danger"><i class="fa fa-eye"></i> 0 Views</span>
                             </div>
-                            <div class="col-6">
+                            <div class="col-md-6">
 
                             </div>
                             <div class="col-md-12">
                                 <h4 class="mt-2"><span class="fa fa-clock-o ion-clock pull-xs-right"></span> About</h4>
                                 <p>
+									{{$user->about}}<br><br>
                                     Website: {{$user->website}}<br/>
-                                    Company: {{$user->company}}<br/>
-                                    Account Type: {{$user->acctype}}<br/>
-                                    @if($user->isStudent())
-                                        Has Sponsorship? {{$user->isSponsored()}}
-                                    @endif
-                                    @if($user->isSponsor())
-                                        Has Sponsored? {{$user->isSponsoring()}}
-                                    @endif
-                                </br/>
-                                </br/>
+                                    Company: {{$user->company}}
+                                </br/><br>
                                 </p>
+                            </div>
+                            <div class="col-md-12">
+                                <a href="{{route('profile.download', $user)}}"><button type="button" class="btn btn-primary" href="{{route('index')}}">Download Academic Record</button></a>
                             </div>
                         </div>
                         <!--/row-->
@@ -86,16 +82,36 @@
                     <div class="tab-pane fade" id="tasks" role="tabpanel" aria-labelledby="tasks-tab">
                         <div class="row">
                             <div class="col-md-12">
-                                <h4 class="mt-2"><span class="fa fa-clock-o ion-clock pull-xs-right"></span> Current Sponsors</h4>
+                                <h4 class="mt-2"><span class="fa fa-clock-o ion-clock pull-xs-right"></span> Current Tasks</h4>
                                 <table class="table table-hover table-striped">
                                     <tbody>
-                                        @foreach($user->student_sponsor_list() as $sponsorship)
-                                            <tr>
-                                                <td>
-                                                    <strong>{{$sponsorship->sponsor->name}}</strong> sponsored this student on <strong>`{{$sponsorship->created_at}}`</strong>
-                                                </td>
-                                            </tr>
-                                        @endforeach
+                                        <tr>
+                                            <td>
+                                                <strong>Abby</strong> joined ACME Project Team in <strong>`Collaboration`</strong>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Gary</strong> deleted My Board1 in <strong>`Discussions`</strong>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Kensington</strong> deleted MyBoard3 in <strong>`Discussions`</strong>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>John</strong> deleted My Board1 in <strong>`Discussions`</strong>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <strong>Skell</strong> deleted his post Look at Why this is.. in <strong>`Discussions`</strong>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -136,8 +152,12 @@
                                             <input class="form-control" type="text" value="{{$user->company}}" name="company">
                                         </div>
                                     </div>
-
-                                    @if(Auth::user() && Auth::user()->isStudent())
+                                    <div class="form-group row">
+                                        <label class="col-lg-3 col-form-label form-control-label">About Me</label>
+                                        <div class="col-lg-9">
+                                            <input class="form-control" type="text" value="{{$user->about}}" name="about">
+                                        </div>
+                                    </div>
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label">Qualification</label>
                                         <div class="col-lg-9">
@@ -149,7 +169,6 @@
                                             </select>
                                         </div>
                                     </div>
-                                    @endif
                                     <div class="form-group row">
                                         <label class="col-lg-3 col-form-label form-control-label"></label>
                                         <div class="col-lg-9">
@@ -157,9 +176,26 @@
                                         </div>
                                     </div>
                                 </form>
+								@if ($user->id==Auth::user()->id && $user->isStudent())
+									<form enctype="multipart/form-data" action="{{route('profile.record',Auth::user()->id)}}" method="POST">
+										{{ csrf_field() }}
+										<div class="mt-3">
+											<h6 class="m-t-2">Upload your student record</h6>
+											<label class="custom-file">
+												<input type="file" name="record" class="custom-file-input">
+												<span class="custom-file-control">Choose file</span>
+											</label>
+										</div>
+										<div class="form-group row">
+											<label class="col-lg-3 col-form-label form-control-label"></label>
+											<div class="col-lg-9">
+												<input type="submit" class="btn btn-primary" value="Upload Record">
+											</div>
+										</div>
+									</form>
+								@endif
                             </div>
 
-                            <!--
                             <div class="tab-pane fade" id="editlogin" role="tabpanel" aria-labelledby="edilogin-tab">
                                 <h4 class="m-y-2">Edit Login</h4>
                                 <form role="form">
@@ -188,7 +224,7 @@
                                         </div>
                                     </div>
                                 </form>
-                            </div>-->
+                            </div>
                         @endif
                     @endauth
                 </div>
