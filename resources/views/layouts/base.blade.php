@@ -25,51 +25,51 @@
     @include('inc.javascript')
     <script src="{{asset('js/summernote-bs4.min.js')}}"></script>
 </head>
-<noscript>
-    This site requires Javascript. Please enable Javascript in your browser for this site.<br/>
+    <noscript>
+        This site requires Javascript. Please enable Javascript in your browser for this site.<br/>
 
-    Something make look broken without it, please enable it.
-</noscript>
+        Something make look broken without it, please enable it.
+    </noscript>
 
 
-@if(Route::is('profile') || Route::is('students') || Route::is('sponsors') || Route::is('tasks'))
-    <body class="clearfix bg-inc2">
-@elseif(!(Route::is('dashboard')))
-    <body class="clearfix bg-inc">
-@else
-    <body class="clearfix bg-inc">
-@endif
-            @if(!(Route::is('dashboard')))
-                <header>
-                    @include('inc.navbar')
-                </header>
-            @endif
 
-            @if(Route::is('dashboard'))
-                <main class="animate fadeIn light-orange">
-                    <div class="container-fluid">
-                        @yield('content')
-                    </div>
-                </main>
-            @elseif(Route::is('index') || Route::is('login') || Route::is('register') || Route::is('newtask'))
-                <main class="animate fadeIn">
+    <body class="clearfix db-bg">
+        @if(!(Route::is('dashboard')))
+            <header>
+                @include('inc.navbar')
+            </header>
+        @endif
+
+        @if(Route::is('dashboard'))
+            <main class="animate fadeIn light-orange">
+                <div class="container-fluid">
                     @yield('content')
-                </main>
-            @else
-                <main class="animate fadeIn">
-                    <div class="content-wrapper grad-content-bg">
-                        @yield('content')
-                    </div>
-                </main>
+                </div>
+            </main>
+        @else
+            @if(Route::is('index'))
+                <div class="green-circle-contain">
+                    <div class="green-circle" style="opacity: 1;"></div>
+                </div>
             @endif
+            <main class="animate fadeIn">
+                <div class="content-wrapper ">
+                    @yield('content')
+                </div>
+            </main>
+        @endif
 
-            @if(!(Route::is('dashboard') || Route::is('profile')))
-                <footer class="footer">
-                    <div class="container">
-                        <div class="text-muted">&copy;GoFundy.Me 2017 | Powered by <a class="footer-link" href="https://laravel.com">Laravel</a> | <a class="footer-link" href="{{route('about')}}">About Us</a> | <a class="footer-link" href="{{route('help')}}">Help</a></div>
+        @if(!(Route::is('dashboard') || Route::is('profile')))
+            <footer class="footer t">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="text-muted pull-right">&copy;GoFundy.Me 2017 | Powered by <a class="footer-link" href="https://laravel.com">Laravel</a> | <a class="footer-link" href="{{route('about')}}">About Us</a> | <a class="footer-link" href="{{route('help')}}">Help</a></div>
+                        </div>
                     </div>
-                </footer>
-            @endif
-<script src="{{asset('js/custom.js')}}" type="text/javascript" ></script>
-</body>
+                </div>
+            </footer>
+        @endif
+        <script src="{{asset('js/custom.js')}}" type="text/javascript" ></script>
+    </body>
 </html>

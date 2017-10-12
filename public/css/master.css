@@ -11,13 +11,13 @@ body {
     position:relative;
     height: 100%;
     font-family: roboto;
-    background-color: #F4F7FA;
 }
 
 main{
     position: relative;
     height:calc(100vh - 75px);
     margin-bottom: -60px;
+    z-index: 950;
 }
 .height-change-listener {
   position: absolute;
@@ -35,7 +35,7 @@ main{
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-      color:white;
+
 }
 
 
@@ -104,6 +104,41 @@ main{
     border-bottom-left-radius: 0;
 }
 .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+/* Signin form */
+.front-page-form {
+    max-width: 75%;
+    margin: 0 auto;
+    flex:0 0 45%;
+}
+.front-page-form .form-signin-heading,
+.front-page-form .checkbox {
+    margin-bottom: 10px;
+}
+.front-page-form .checkbox {
+    font-weight: normal;
+}
+.front-page-form .form-control {
+    position: relative;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 16px;
+}
+.front-page-form .form-control:focus {
+    z-index: 2;
+}
+.front-page-form input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.front-page-form input[type="password"] {
     margin-bottom: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -250,14 +285,14 @@ code {
     height:35px;
     line-height: 15px;
 }
-.navbar-dark .navbar-brand{
-    color: #28a745 !important;
-}
 
 .page-header{
     text-align: center;
 }
 
+.welcome-container{
+    min-height: 100%;
+}
 .welcome-container-1{
     color:rgba(255,255,255,.7);
     flex: 0 0 45%;
@@ -275,9 +310,6 @@ code {
 .container-profile{
 }
 
-.grad-content-bg{
-    background-color: rgba(12,12,12,.9);
-}
 .center-text{
     text-align: center;
 }
@@ -319,8 +351,12 @@ code {
 .footer-link {
     color: #8a9096!important;
 }
-
-.fundyLogo{
+.grad-content-bg{
+    /* background-color: rgba(12,12,12,.9); */
+    background-color: rgb(157, 157, 157);
+    color: white;
+}
+.fundyLogo {
     float:left;
     height: 30px;
     width: 30px;
@@ -331,7 +367,7 @@ code {
     border-radius: 5px;
 }
 
-.navbar-brand{
+.navbar-brand {
     border: 1px solid black;
     padding-right: 2.1%;
     padding-left: 3px;
@@ -343,57 +379,96 @@ code {
       padding-left: 3px;
   }
 }
-.container-cover{
+.container-cover {
     height: 100%;
 }
 
-.m-x-auto{
+.m-x-auto {
     margin: 15px auto;
 }
 
-.navbar{
+.navbar {
     border-radius: 0px !important;
 }
 
-.nav-link{
+.nav-link {
     color: white;
 }
 
-.nav-link:hover{
+.nav-link:hover {
     color: lightgrey;
 }
 
-.nav-link.active, .nav-link:hover{
+.nav-link.active, .nav-link:hover {
     background-color: #ce7349 !important;
 }
 
-.sidebar{
+.sidebar {
     box-shadow: 0 4px 5px 0 rgba(0,0,0,.16), 0 4px 10px 0 rgba(0,0,0,.12);
     -webkit-box-shadow: 0 4px 5px 0 rgba(0,0,0,.16), 0 4px 10px 0 rgba(0,0,0,.12);
 }
 
 /* For current Skin */
 
-.pad-4{
+.pad-4 {
     padding:4%;
 }
 
-.mb-cust-db{
+.mb-cust-db {
     margin-bottom: 13rem!important
 }
 
 
-.fl-right{
+.fl-right {
     float: right !important;
 }
 
-.fl-left{
+.fl-left {
     float: left !important;
 }
 
 .content-wrapper{
     padding-top:1rem!important;
     height:calc(100% - 75px);
-    width:50%;
+    width: 75%;
     margin: 0 auto;
+    /*box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12); */
+}
+
+.card{
+    color: black;
+}
+
+.green-circle-contain{
+    bottom:0;
+    height: calc(100% - 75px);
+    left:0;
+    overflow:hidden;
+    position: absolute;
+    right: 0;
+    top: 75px;
+    z-index: 900;
+}
+
+.green-circle{
+    background: #ce7349;
+    border-radius: 50%;
+    width: 140vw;
+    max-width: 68.75rem;
+    max-height: 68.75rem;
+    left: -15%;
+    top: 75%;
+    height: 140vw;
+    position: absolute;
+    z-index: -1;
+}
+
+.card-block-inline{
+    display: inline-flex;
+}
+
+.outline-this{
+    border: 1px lightgrey solid;
+    border-radius: 2%;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .16), 0 2px 10px 0 rgba(0, 0, 0, .12);
 }

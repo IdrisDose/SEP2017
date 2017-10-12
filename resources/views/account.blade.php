@@ -70,7 +70,12 @@
                                     Company: {{$user->company}}<br/>
                                     Account Type: {{$user->acctype}}<br/>
                                     @if($user->isStudent())
-                                        Has Sponsorship? {{$user->isSponsored()}}
+                                        Has Sponsorship? {{$user->isSponsored()}}<br />
+                                        @if($user->isSponsored())
+                                            Currently being sponsored by <b>{{$user->sponsoredBy()}}</b> sponsors.
+                                        @else
+                                            Currently has no sponsors.
+                                        @endif
                                     @endif
                                     @if($user->isSponsor())
                                         Has Sponsored? {{$user->isSponsoring()}}
