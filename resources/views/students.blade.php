@@ -4,7 +4,7 @@
   <!-- Begin page content -->
     <div class="container">
         <div class="row">
-            <div class="col-12 center-text">
+            <div class="col-md-12 center-text">
                 <div class="mt-1">
                     <h1 class="center-text">Student List</h1>
                 </div>
@@ -13,16 +13,16 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12">
+            <div class="col-md-12">
                 <h2>Active Students</h2>
                 <hr class="orange">
             </div>
 
         @foreach($users as $user)
-            <div class="col-3">
+            <div class="col-md-3 mt-3">
                 <div class="card"onclick="window.document.location='/profile/{{$user->id}}';" style="cursor: pointer;">
                     <div class="card-block">
-                        <div class="col-12 center-text mt-3">
+                        <div class="col-md-12 center-text mt-3">
                             <img src="//placehold.it/100" class="img-fluid rounded-circle mb-2" alt="" title="Sponsor Image">
                         </div>
                         <hr>
@@ -31,7 +31,7 @@
                         <h3>{{$user->name}}</h3>
                         <span class="text-muted">Click to view profile</span>
 
-                        <div class="col-6 mb-2">Degree: {{$user->getDegree()}}</div>
+                        <div class="col-md-12 mb-2">Degree: {{$user->getDegree()}}</div>
                     </div>
                 </div>
             </div>

@@ -23,7 +23,7 @@
                 <section class="dashboard-counts section-padding section-no-padding-bottom">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-3">
+                            <div class="col-md-3">
                                 <div class="wrapper count-title d-flex purple">
                                     <div class="icon"><i class="icon-user"></i></div>
                                     <div class="name"><strong class="text-uppercase">Tasks Pending</strong>
@@ -31,7 +31,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3">
+                            <div class="col-md-3">
                                 <div class="wrapper count-title d-flex green">
                                     <div class="icon"><i class="icon-bill"></i></div>
                                     <div class="name"><strong class="text-uppercase">Tasks Complete</strong><span>Last 7 days</span>
@@ -39,7 +39,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3">
+                            <div class="col-md-3">
                                 <div class="wrapper count-title d-flex blue">
                                     <div class="icon"><i class="icon-padnote"></i></div>
                                     <div class="name"><strong class="text-uppercase">Balance</strong>
@@ -47,7 +47,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3">
+                            <div class="col-md-3">
                                 <div class="wrapper count-title d-flex red">
                                     <div class="icon"><i class="icon-check"></i></div>
                                     <div class="name"><strong class="text-uppercase">Sponsors</strong>
@@ -64,14 +64,14 @@
                 <section class="statistics section-padding">
                   <div class="container-fluid">
                     <div class="row d-flex align-items-stretch">
-                      <div class="col-6">
+                      <div class="col-md-6">
                           <!-- Income-->
                           <div class="wrapper income text-center align-middle">
                             <div class="number">${{Auth::user()->getBalance()}} AUD</div><strong class="text-primary">All Income</strong>
                             <p>Total amount recieved via tasks and sponsorships</p>
                           </div>
                       </div>
-                      <div class="col-6">
+                      <div class="col-md-6">
                         <!-- User Actibity-->
                         <div class="wrapper user-activity">
                           <h2 class="display h4 db-section-title">User Activity</h2>

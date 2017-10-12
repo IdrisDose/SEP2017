@@ -7,7 +7,7 @@
             <label for="name" class="sr-only">Name</label>
             <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus placeholder="Name">
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="col-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <label for="description" class="sr-only">Description</label>
                 <textarea id="description"  class="form-control" name="description" required placeholder="Task Description"></textarea>

@@ -4,7 +4,7 @@
     <!-- Begin page content -->
     <div class="container content-container">
         <div class="row">
-            <div class="col-12">
+            <div class="col-md-12">
                 <div class="welcome-container">
                     <div class="justify-content-sm-center center-text">
                         <h1>GoFundyMe</h2>
@@ -18,14 +18,14 @@
                 </div>
                 <div class="row mt-5">
 
-                    <div class="col-6">
+                    <div class="col-md-6">
                         <div class="welcome-container">
                             <!--<div class=" center-text grad-content-bg">-->
                             @guest
                                 <div class="center-text mb-3 outline-this">
 
                                     <h2 class="mt-2">Sign in</h2>
-                                    <form class="front-page-form col-sm-9" method="POST" action="{{ route('login') }}">
+                                    <form class="front-page-form col-md-sm-9" method="POST" action="{{ route('login') }}">
                                         {{ csrf_field() }}
                                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                                             <label for="email" class="sr-only">E-Mail Address</label>
@@ -78,7 +78,7 @@
                                 </div>
                             @endguest
                             @auth
-                                <div class="col-12 pad-3">
+                                <div class="col-md-12 pad-3">
                                     <h1 class="center-text ">Welcome Back, {{ Auth::user()->name }}</h1>
                                     <p class="center-text ">Quick DEBUG (REMOVE WHEN PUBLISH)</p>
                                     <ul class="list-group">
@@ -91,7 +91,7 @@
                             @endauth
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-md-6">
                         @guest
                             <div class="center-text mb-3 outline-this">
 

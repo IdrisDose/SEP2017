@@ -5,7 +5,7 @@
 
         <div class="row my-2">
 
-            <div class="col-lg-4 pull-lg-8 text-xs-center">
+            <div class="col-md-4 pull-lg-8 text-xs-center">
                 <h4 class="center-text">{{$user->name}} (ID: {{$user->id}})</h4>
                 <img src="//placehold.it/150" class="mx-auto d-block img-fluid rounded-circle" alt="avatar">
                 {{--
@@ -22,7 +22,7 @@
                 @endauth--}}
             </div>
 
-            <div class="col-lg-8 push-lg-4">
+            <div class="col-md-8 push-lg-4">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link active tab" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-expanded="true">Profile</a>
@@ -55,12 +55,12 @@
                     <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <h4 class="my-2">User Profile</h4>
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-md-6">
                                 <span class="tag tag-primary"><i class="fa fa-user"></i> 0 Followers</span>
                                 <span class="tag tag-success"><i class="fa fa-cog"></i> 0 Task Complete</span>
                                 <span class="tag tag-danger"><i class="fa fa-eye"></i> 0 Views</span>
                             </div>
-                            <div class="col-6">
+                            <div class="col-md-6">
 
                             </div>
                             <div class="col-md-12">
@@ -117,35 +117,35 @@
                                     {{ csrf_field() }}
                                     {{ method_field('PUT')}}
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Name</label>
-                                        <div class="col-lg-9">
+                                        <label class="col-md-3 col-form-label form-control-label">Name</label>
+                                        <div class="col-md-9">
                                             <input class="form-control" type="text" value="{{Auth::user()->name}}" name="name">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Email</label>
-                                        <div class="col-lg-9">
+                                        <label class="col-md-3 col-form-label form-control-label">Email</label>
+                                        <div class="col-md-9">
                                             <input class="form-control" type="email" value="{{Auth::user()->email}}" name="email">
                                         </div>
                                     </div>
 
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Website</label>
-                                        <div class="col-lg-9">
+                                        <label class="col-md-3 col-form-label form-control-label">Website</label>
+                                        <div class="col-md-9">
                                             <input class="form-control" type="text" value="{{$user->website}}" name="website">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Company</label>
-                                        <div class="col-lg-9">
+                                        <label class="col-md-3 col-form-label form-control-label">Company</label>
+                                        <div class="col-md-9">
                                             <input class="form-control" type="text" value="{{$user->company}}" name="company">
                                         </div>
                                     </div>
 
                                     @if(Auth::user() && Auth::user()->isStudent())
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Qualification</label>
-                                        <div class="col-lg-9">
+                                        <label class="col-md-3 col-form-label form-control-label">Qualification</label>
+                                        <div class="col-md-9">
                                             <select class="form-control" name="degree_id">
                                                 <option value="0" selected disabled>Degree Level...</option>
                                                 @foreach($degrees as $degree)
@@ -156,8 +156,8 @@
                                     </div>
                                     @endif
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label"></label>
-                                        <div class="col-lg-9">
+                                        <label class="col-md-3 col-form-label form-control-label"></label>
+                                        <div class="col-md-9">
                                             <input type="submit" class="btn btn-primary" value="Save Changes">
                                         </div>
                                     </div>
@@ -169,26 +169,26 @@
                                 <h4 class="m-y-2">Edit Login</h4>
                                 <form role="form">
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Username</label>
-                                        <div class="col-lg-9">
+                                        <label class="col-md-3 col-form-label form-control-label">Username</label>
+                                        <div class="col-md-9">
                                             <input class="form-control" type="text" value="{{Auth::user()->email}}">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Password</label>
-                                        <div class="col-lg-9">
+                                        <label class="col-md-3 col-form-label form-control-label">Password</label>
+                                        <div class="col-md-9">
                                             <input class="form-control" type="password" value="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label">Confirm password</label>
-                                        <div class="col-lg-9">
+                                        <label class="col-md-3 col-form-label form-control-label">Confirm password</label>
+                                        <div class="col-md-9">
                                             <input class="form-control" type="password" value="">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label form-control-label"></label>
-                                        <div class="col-lg-9">
+                                        <label class="col-md-3 col-form-label form-control-label"></label>
+                                        <div class="col-md-9">
                                             <input type="button" class="btn btn-primary" value="Save Changes">
                                         </div>
                                     </div>

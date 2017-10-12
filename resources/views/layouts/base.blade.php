@@ -56,20 +56,21 @@
                 <div class="content-wrapper ">
                     @yield('content')
                 </div>
+
             </main>
         @endif
-
         @if(!(Route::is('dashboard') || Route::is('profile')))
             <footer class="footer t">
                 <div class="container">
                     <div class="row">
-                        <div class="col-12">
+                        <div class="col-md-12">
                             <div class="text-muted pull-right">&copy;GoFundy.Me 2017 | Powered by <a class="footer-link" href="https://laravel.com">Laravel</a> | <a class="footer-link" href="{{route('about')}}">About Us</a> | <a class="footer-link" href="{{route('help')}}">Help</a></div>
                         </div>
                     </div>
                 </div>
             </footer>
         @endif
+
         <script src="{{asset('js/custom.js')}}" type="text/javascript" ></script>
     </body>
 </html>
