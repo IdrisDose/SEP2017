@@ -74,7 +74,7 @@ table {
   transition: width 0.3s linear;
   width: calc(100% - 200px);
   /* background-color: #F8F8F8; */
-  background-color: #151515;
+  background-color: #ce7349;
   min-height: 100vh;
 }
 
@@ -2313,4 +2313,8 @@ a.text-primary:focus, a.text-primary:hover {
 .pagination-sm .page-item:last-child .page-link {
   border-bottom-right-radius: 0.2rem;
   border-top-right-radius: 0.2rem;
+}
+
+.text-muted, .text-muted a{
+    color: white !important;
 }
