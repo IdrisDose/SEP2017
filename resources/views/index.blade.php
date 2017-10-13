@@ -3,8 +3,9 @@
 @section('content')
     <!-- Begin page content -->
     <div class="container content-container">
-        <div class="row mt-5">
 
+        @guest
+            <div class="row mt-5">
                 <div class="col-md-5 ml-auto animated slideInLeft">
                     <div class="welcome-container">
                         <div class="justify-content-sm-center center-text">
@@ -15,8 +16,10 @@
                         </div>
                     </div>
                 </div>
-            @guest
-                <div class="col-md-1"></div>
+
+                <div class="col-md-1">
+                    <div style="border-right:1px solid #bdbdbd; height:500px"></div>
+                </div>
 
                 <div class="col-md-5 mr-auto animated slideInRight">
                     <div class="center-text mb-3 ">
@@ -86,10 +89,12 @@
                         </form>
                     </div>
                 </div>
-            @endguest
+            </div>
+        @endguest
 
-            @auth
-                <div class="col-md-12 pad-3 animated slideInUp">
+        @auth
+            <div class="row">
+                <div class="col-md-8 pad-3 animated slideInUp mx-auto">
                     <h1 class="center-text ">Welcome Back, {{ Auth::user()->name }}</h1>
                     <p class="center-text ">Quick DEBUG (REMOVE WHEN PUBLISH)</p>
                     <ul class="list-group">
@@ -99,7 +104,7 @@
                         <li class="list-group-item">Degree?: {{Auth::user()->getDegree()}}</li>
                     </ul>
                 </div>
-            @endauth
-        </div>
+            </div>
+        @endauth
     </div>
 @endsection
