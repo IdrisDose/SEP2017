@@ -52,15 +52,16 @@
                     <div class="green-circle" style="opacity: 1;"></div>
                 </div>
             @endif
-            <main class="animate fadeIn">
+            <main class="animate fadeIn mb-1">
                 <div class="content-wrapper ">
                     @yield('content')
                 </div>
 
             </main>
         @endif
+
         @if(!(Route::is('dashboard') || Route::is('profile')))
-            <footer class="footer t">
+            <footer class="footer fixed-bottom">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">

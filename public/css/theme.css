@@ -82,6 +82,10 @@ section.dashboard-counts .count-title span{
     color: white !important;
     margin-bottom: 1rem;
 }
+#acctype-front{
+    color: #151515 !important;
+    margin-bottom: 1rem;
+}
 
 #acctype option{
     color: black !important;
@@ -96,10 +100,42 @@ section.dashboard-counts .count-title span{
     background-color: transparent;
 }
 
-input::-webkit-input-placeholder {
-color: #f98f5f !important;
+.form-signin input:-ms-input-placeholder{
+  color: white !important;
+}
+.form-signin input::-webkit-input-placeholder{
+  color: white !important;
+}
+.form-signin input::-moz-placeholder{
+  color: white !important;
+}
+.form-signin input:-moz-placeholder {
+  color: white !important;
+}
+
+.form-register input::-webkit-input-placeholder , , , {
+  color: white !important;
+}
+.form-register input::-webkit-input-placeholder{
+  color: white !important;
+}
+.form-register input::-moz-placeholder{
+  color: white !important;
+}
+.form-register input:-ms-input-placeholder{
+  color: white !important;
+}
+.form-register input:-moz-placeholder{
+  color: white !important;
+}
+.form-signin label, .form-register label, .form-newtask label{
+  color: white;
 }
 
 .grad-content-bg form h1, .grad-content-bg form h2, .grad-content-bg form h3{
     color: #FFF;
+}
+
+.forgot-link{
+  color: #f98f5f;
 }

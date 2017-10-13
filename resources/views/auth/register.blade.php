@@ -57,7 +57,7 @@
             </div>
         </div>
         <div class="form-group">
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary pull-right">
                 Register
             </button>
         </div>
