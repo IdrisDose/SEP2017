@@ -13,7 +13,15 @@ $(document).ready(function() {
 
 
 });
-
+function animatedLogo(p1){
+  if(p1){
+    $(".navbar-brand").addClass("animated");
+    $(".navbar-brand").addClass("tada");
+  }else{
+    $(".navbar-brand").removeClass("animated");
+    $(".navbar-brand").removeClass("tada");
+  }
+}
 jQuery(document).ready(function($) {
     $(".clickable-row").click(function() {
         window.location = $(this).data("href");

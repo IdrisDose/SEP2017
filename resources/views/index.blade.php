@@ -4,7 +4,7 @@
   <!-- Begin page content -->
   <div class="container content-container">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-12 animated slideInUp">
         <div class="welcome-container">
           <div class="justify-content-sm-center center-text">
             <h1>GoFundyMe</h2>
@@ -19,7 +19,7 @@
 
         <div class="row mt-5">
           @guest
-          <div class="col-md-5 ml-auto outline-this">
+          <div class="col-md-5 ml-auto outline-this animated slideInLeft">
               <!--<div class=" center-text grad-content-bg">-->
                 <div class="center-text mb-3 ">
                   <h2 class="mt-2">Sign in</h2>
@@ -78,8 +78,8 @@
                 </div>
               </div>
               <div class="col-md-1"></div>
-              <div class="col-md-5 mr-auto outline-this">
-                <div class="center-text mb-3">
+              <div class="col-md-5 mr-auto outline-this animated slideInRight">
+                <div class="center-text mb-3 ">
                   <h2 class="mt-2">Register New Account</h2>
                   <form class="front-page-form" method="POST" action="{{ route('register') }}">
                     {{ csrf_field() }}

@@ -11,7 +11,7 @@
                 <p class="lead">This is the list of all current and active sponsors, keep an eye on this page as more sponsors may join!</p>
             </div>
         </div>
-        <div class="row">
+        <div class="row ">
             <div class="col-md-12">
                 <h2 class="">Active Sponsors</h2>
                 <hr class="orange">
