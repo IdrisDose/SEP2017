@@ -9,7 +9,7 @@
           <div class="justify-content-sm-center center-text">
             <h1>GoFundyMe</h2>
               <p class="mt-3">
-                GoFundyMe is a crowdsourcing project aimed at connecting students and companies together to help a student in need progress through their degree while also getting working that the sponsors set forth for completion.                        </p>
+                GoFundyMe is a crowd-sourcing project aimed at connecting businesses and students with the aim of assisting the student with financial support and progress through their degree whilest getting work that their sponsors set forth for completion.                        </p>
               </div>
             </div>
             <hr />
