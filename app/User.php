@@ -59,7 +59,7 @@ class User extends Authenticatable
         if($count > 0){
             $this->balance = ($count*5.00);
         }
-        return $this->balance.".00";
+        return $this->balance;
     }
 
     public function tasks(){

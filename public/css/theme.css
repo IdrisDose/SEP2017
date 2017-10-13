@@ -19,18 +19,20 @@
     transition: all .1s linear;
     background-color: #ce7349 !important;
 }
-
+.tab{
+  color: #f98f5f;
+}
 .tab.active{
     color:white;
     background-color: white !important;
 }
 
 .tab:hover{
-    color:white;
+    color:#f98f5f;
     background: transparent !important;
 }
 .nav-link.active:hover{
-    color:white;
+    color:#f98f5f;
 }
 
 label, h4,h1,h2,h3,th{
@@ -137,5 +139,9 @@ section.dashboard-counts .count-title span{
 }
 
 .forgot-link{
+  color: #f98f5f;
+}
+
+#edit input, #edit select{
   color: #f98f5f;
 }

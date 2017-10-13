@@ -91,7 +91,7 @@
                 </section>
 
 
-                <section class="dashboard-header section-padding mb-cust-db">
+                <section class="dashboard-header section-padding ">
                     <div class="container-fluid">
                         <div class="row d-flex align-items-md-stretch">
                             <div class="col-4"></div>
