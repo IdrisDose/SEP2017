@@ -56,7 +56,7 @@
             </main>
         @else
             @if(Route::is('index') && Agent::isDesktop())
-                <div class="green-circle-contain animated slideInUp">
+                <div class="green-circle-contain animated fadeIn">
                     <div class="green-circle" style="opacity: 1;"></div>
                 </div>
             @endif

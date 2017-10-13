@@ -55,7 +55,7 @@
     --}}
     <div class="container">
         <div class="row">
-            <div class="col-md-5 mt-5 mx-auto outline-this animated bounceIn">
+            <div class="col-md-5 mt-5 mx-auto outline-this animated fadeIn">
                 <!--<div class=" center-text grad-content-bg">-->
                 <div class="center-text mb-3">
                     <h2 class="mt-2">Sign in</h2>

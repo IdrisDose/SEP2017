@@ -75,7 +75,7 @@ table {
   width: calc(100% - 200px);
   /* background-color: #F8F8F8; */
   background-color: #ce7349;
-  min-height: 100vh;
+  min-height:100vh;
 }
 
 .page.active {

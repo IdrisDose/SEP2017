@@ -61,7 +61,7 @@
                 </section>
 
                 <!-- Header Section-->
-                <section class="statistics section-padding">
+                <section class="statistics section-padding section-no-padding-bottom">
                   <div class="container-fluid">
                     <div class="row d-flex align-items-stretch">
                       <div class="col-md-6">
@@ -90,32 +90,39 @@
                   </div>
                 </section>
 
-
-                <section class="dashboard-header section-padding ">
+                <section class="statistics section-padding">
                     <div class="container-fluid">
                         <div class="row d-flex align-items-md-stretch">
-                            <div class="col-4"></div>
-                            <!-- To Do List-->
-                            <div class="col-4">
-                                <div class="wrapper to-do">
-                                    <h2 class="db-section-title">List of Tasks</h2>
-                                    <ul class="check-lists list-unstyled">
-
-                                    </ul>
+                            <div class="col-6">
+                                <div class="wrapper">
+                                    <div class="d-flex align-items-center">
+                                        <h2 class="db-section-title center-text">Tasks to complete</h2>
+                                    </div>
+                                    <table class="table mx-auto">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Name</th>
+                                                <th>Description</th>
+                                                <th>Owner</th>
+                                                <th>Price</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </section>
-
-
-
-                <footer class="footer">
-                    <div class="container">
-                        <div class="text-muted">&copy;GoFundy.Me 2017 | Powered by <a class="footer-link" href="https://laravel.com">Laravel</a> | <a class="footer-link" href="{{route('about')}}">About Us</a> | <a class="footer-link" href="{{route('help')}}">Help</a> <span class=" pull-right">Design by <a class="footer-link" href="https://bootstrapious.com">Bootstrapious</a></span> </div>
-                    </div>
-                </footer>
             </div>
 
 @endsection

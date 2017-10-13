@@ -378,7 +378,6 @@ code {
 }
 @media (min-width:1367px){
   .navbar-brand{
-      border: 1px solid black;
       padding-right: 16px;
       padding-left: 3px;
   }
@@ -499,7 +498,13 @@ select.form-control:not([size]):not([multiple]){
     height: inherit;
 }
 
-
+.profile-card{
+    border-radius: 0;
+}
 .loadClass{
     overflow-x: hidden;
+}
+
+.db-wrap{
+    height: calc(100% - 60px);
 }

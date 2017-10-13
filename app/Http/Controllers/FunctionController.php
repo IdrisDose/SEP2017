@@ -54,4 +54,15 @@ class FunctionController extends Controller
         return back();
 
     }
+
+    public function removesponsor($id){
+        if(Auth::user() && Auth::user()->isSponsor()){
+            $sponsor = Auth::user()->id;
+            $sponsorship = Sponsorship::where('student_id',$id)->where('sponsor_id',$sponsor);
+            $sponsorship->delete();
+            return redirect(route('dashboard',Auth::user()->acctype));
+
+        }
+        return back();
+    }
 }

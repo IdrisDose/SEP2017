@@ -27,21 +27,25 @@
                     <li class="nav-item">
                         <a class="nav-link active tab" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-expanded="true">Profile</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link tab" id="tasks-tab" data-toggle="tab" href="#tasks" role="tab" aria-controls="tasks" aria-expanded="true">Sponsors</a>
-                    </li>
+                    @if($user->isSponsor())
+                        <li class="nav-item">
+                            <a class="nav-link tab" id="tasks-tab" data-toggle="tab" href="#tasks" role="tab" aria-controls="tasks" aria-expanded="true">Sponsoring</a>
+                        </li>
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link tab" id="tasks-tab" data-toggle="tab" href="#tasks" role="tab" aria-controls="tasks" aria-expanded="true">Sponsors</a>
+                        </li>
+                    @endif
+
                     @auth
                         @if ($user->id==Auth::user()->id)
                             <li class="nav-item">
                                 <a class="nav-link tab" id="edit-tab" data-toggle="tab" href="#edit" role="tab" aria-controls="edit" onclick="checkScrollBar()">Edit Details</a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
                             </li>
-                            <!--
-                            <li class="nav-item">
-                                <a class="nav-link tab" id="edit-tab" data-toggle="tab" href="#editlogin" role="tab" aria-controls="editlogin">Edit login</a>
-                            </li>-->
                         @endif
                     @endauth
+
                     @if (Auth::User() && Auth::user()->isSponsor() && $user->isStudent())
                         @if(!($user->alreadySponsored(Auth::user()->id)))
                             <li class="nav-item">
@@ -54,22 +58,25 @@
                 <div class="tab-content mt-3" id="myTabContent">
 
                     <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                        <h4 class="my-2">User Profile</h4>
                         <div class="row">
-                            <div class="col-md-6">
-                                <span class="tag tag-primary"><i class="fa fa-user"></i> 0 Followers</span>
-                                <span class="tag tag-success"><i class="fa fa-cog"></i> 0 Task Complete</span>
-                                <span class="tag tag-danger"><i class="fa fa-eye"></i> 0 Views</span>
+                            <!-- About Me -->
+                            <div class="col-md-8">
+                                <h4 class="mt-2"><span class="fa fa-id-card-o pull-xs-right"></span> About Me</h4>
+                                <p>
+                                    @if($user->hasAboutMe())
+                                        Something...
+                                    @else
+                                        Coming Soon....
+                                    @endif
+                                </p>
                             </div>
-                            <div class="col-md-6">
-
-                            </div>
-                            <div class="col-md-12">
-                                <h4 class="mt-2"><span class="fa fa-clock-o ion-clock pull-xs-right"></span> About</h4>
+                            <!-- Basic Details -->
+                            <div class="col-md-4">
+                                <h4 class="mt-2"><span class="fa fa-id-card-o pull-xs-right"></span> Details</h4>
                                 <p>
                                     Website: {{$user->website}}<br/>
                                     Company: {{$user->company}}<br/>
-                                    Account Type: {{$user->acctype}}<br/>
+                                    Account Type: {{$user->getAccType()}}<br/>
                                     @if($user->isStudent())
                                         Has Sponsorship? {{$user->isSponsored()}}<br />
                                         @if($user->isSponsored())
@@ -81,8 +88,6 @@
                                     @if($user->isSponsor())
                                         Has Sponsored? {{$user->isSponsoring()}}
                                     @endif
-                                </br/>
-                                </br/>
                                 </p>
                             </div>
                         </div>
@@ -91,20 +96,37 @@
 
                     <div class="tab-pane fade" id="tasks" role="tabpanel" aria-labelledby="tasks-tab">
                         <div class="row">
-                            <div class="col-md-12">
-                                <h4 class="mt-2"><span class="fa fa-clock-o ion-clock pull-xs-right"></span> Current Sponsors</h4>
-                                <table class="table table-hover table-striped">
-                                    <tbody>
-                                        @foreach($user->student_sponsor_list() as $sponsorship)
-                                            <tr>
-                                                <td>
-                                                    <strong>{{$sponsorship->sponsor->name}}</strong> sponsored this student on <strong>`{{$sponsorship->created_at}}`</strong>
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>
+                            @if($user->isStudent())
+                                <div class="col-md-12">
+                                    <h4 class="mt-2"><span class="fa fa-clock-o ion-clock pull-xs-right"></span> Current Sponsors</h4>
+                                    <table class="table table-hover table-striped">
+                                        <tbody>
+                                            @foreach($user->student_sponsor_list() as $sponsorship)
+                                                <tr>
+                                                    <td>
+                                                        <strong>{{$sponsorship->sponsor->name}}</strong> sponsored this student on <strong>`{{$sponsorship->created_at}}`</strong>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            @else
+                                <div class="col-md-12">
+                                    <h4 class="mt-2"><span class="fa fa-clock-o ion-clock pull-xs-right"></span> Currently sponsoring</h4>
+                                    <table class="table table-hover table-striped">
+                                        <tbody>
+                                            @foreach($user->sponsor_student_list() as $sponsorship)
+                                                <tr>
+                                                    <td>
+                                                        <strong>{{$user->name}}</strong> sponsored <strong>{{$sponsorship->student->name}}</strong> on <strong>`{{$sponsorship->created_at}}`</strong>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            @endif
                         </div>
                         <!--/row-->
                     </div>

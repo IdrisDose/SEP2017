@@ -30,4 +30,5 @@ Route::group(['middleware'=>'auth'],function(){
     Route::post('/tasks', 'FunctionController@newtask')->name('task.create');
     Route::put('/updateprofile/{id}', 'PageController@editaccount')->name('profile.update');
     Route::post('/sponsor', 'FunctionController@newsponsor')->name('sponsor.create');
+    Route::delete('/sponsor/{id}', 'FunctionController@removesponsor')->name('sponsor.delete');
 });

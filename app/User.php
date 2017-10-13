@@ -47,7 +47,9 @@ class User extends Authenticatable
     public function isSponsoring(){
         return $this->sponsoring()>0?'Yes':'No';
     }
-
+    public function getAccType(){
+        return ucfirst($this->acctype);
+    }
     public function getDegree(){
         $id = $this->degree_id;
         $degree = Degree::where('id','=',$id)->first();
@@ -95,6 +97,14 @@ class User extends Authenticatable
     */
     public function student_sponsor_list(){
         return Sponsorship::where('student_id',$this->id)->get();
+    }
+
+    public function sponsor_student_list(){
+        return Sponsorship::where('sponsor_id',$this->id)->get();
+    }
+
+    public function hasAboutMe(){
+        return false;
     }
 
     private function get_percentage($total, $number)
