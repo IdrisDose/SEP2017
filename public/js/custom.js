@@ -11,7 +11,7 @@ $(document).ready(function() {
         }
     });
 
-
+    $( 'html' ).addClass("loadClass");
 });
 function animatedLogo(p1){
   if(p1){

@@ -19,9 +19,7 @@
 
                 @if(Agent::isDesktop())
                 <div class="col-md-1">
-
-                        <div style="border-right:1px solid #bdbdbd; height:500px"></div>
-
+                        <div style="border-right:1px solid #bdbdbd; height: calc(100%)"></div>
                 </div>
                 @endif
                 <div class="col-md-5 mr-auto animated slideInRight">

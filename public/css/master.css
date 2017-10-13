@@ -1,20 +1,14 @@
 /* Sticky footer styles
 -------------------------------------------------- */
-html {
-    position: static;
-    min-height: 100%;
-    height: 200px;
-    overflow-x: hidden;
-}
-body {
-    /* Margin bottom by footer height */
+html,body {
     position:relative;
-    font-family: roboto;
-    padding:0;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    min-height:100vh;
+
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+        font-family: roboto;
 }
 
 main{
@@ -496,4 +490,9 @@ code {
 
 select.form-control:not([size]):not([multiple]){
     height: inherit;
+}
+
+
+.loadClass{
+    overflow-x: hidden;
 }
