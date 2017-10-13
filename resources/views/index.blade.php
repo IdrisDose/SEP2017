@@ -17,10 +17,13 @@
                     </div>
                 </div>
 
+                @if(Agent::isDesktop())
                 <div class="col-md-1">
-                    <div style="border-right:1px solid #bdbdbd; height:500px"></div>
-                </div>
 
+                        <div style="border-right:1px solid #bdbdbd; height:500px"></div>
+
+                </div>
+                @endif
                 <div class="col-md-5 mr-auto animated slideInRight">
                     <div class="center-text mb-3 ">
                         <h2 class="mt-2">Register New Account</h2>

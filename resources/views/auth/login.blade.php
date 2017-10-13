@@ -108,6 +108,9 @@
                                 Forgot Your Password?
                             </a>
                         </div>
+                        <div class="form-group mt-3">
+                                Don't have an account? <a class="forgot-link" href="{{ route('register') }}">Click Here</a> to register.
+                        </div>
                     </form>
                 </div>
             </div>

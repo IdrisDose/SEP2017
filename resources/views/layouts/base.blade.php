@@ -55,7 +55,7 @@
                 </div>
             </main>
         @else
-            @if(Route::is('index'))
+            @if(Route::is('index') && Agent::isDesktop())
                 <div class="green-circle-contain animated slideInUp">
                     <div class="green-circle" style="opacity: 1;"></div>
                 </div>
@@ -68,7 +68,7 @@
             </main>
         @endif
 
-        @if(!(Route::is('dashboard') || Route::is('profile')))
+        @if(!(Route::is('dashboard') || Route::is('profile')) && Agent::isDesktop())
             <footer class="footer fixed-bottom">
                 <div class="container">
                     <div class="row">
