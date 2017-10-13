@@ -22,6 +22,18 @@ function animatedLogo(p1){
     $(".navbar-brand").removeClass("tada");
   }
 }
+
+function validateNav(){
+    var uname = $("#email-nav");
+    var pword = $("#password-nav");
+
+    if(uname.val() || pword.val()){
+        $("#navbar-login").submit();
+    }else{
+        window.document.location='/login';
+    }
+}
+
 jQuery(document).ready(function($) {
     $(".clickable-row").click(function() {
         window.location = $(this).data("href");
