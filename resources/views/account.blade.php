@@ -52,6 +52,7 @@
                 </ul>
 
                 <div class="tab-content mt-3" id="myTabContent">
+
                     <div class="tab-pane fade show active" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                         <h4 class="my-2">User Profile</h4>
                         <div class="row">
