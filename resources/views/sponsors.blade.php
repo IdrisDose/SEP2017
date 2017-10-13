@@ -19,7 +19,7 @@
 
             @if(count($users)>0)
                 @foreach ($users as $userObj)
-                    <div class="col-md-3 mt-3">
+                    <div class="col-md-3 mt-3 animated fadeInUp">
                         <div class="card" onclick="window.document.location='/profile/{{$userObj->id}}';" style="cursor: pointer;">
                             <div class="card-block">
                                 <div class="col-md-12 center-text  mt-4">
