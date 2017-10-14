@@ -1,6 +1,6 @@
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark orange accent-2">
+    <nav class="navbar navbar-expand-lg navbar-dark orange accent-4">
          <div class="container">
              <a class="navbar-brand animated pulse" onmouseover="animatedLogo(true)" onmouseout="animatedLogo(false)" href="/"><div class="fundyLogo">G</div> <span class="logo mr-3">GoFundyMe</span> </a>
              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,7 +29,7 @@
                      @endif
 
                      @if(Request::is('students'))
-                         <li class="nav-item active">
+                         <li class="nav-item mr-1 active">
                              <a class="nav-link" href="{{route('students')}}">Students <span class="sr-only">(current)</span></a>
                          </li>
                      @else
@@ -49,7 +49,7 @@
                      @endif
                      @auth
                          @if(Request::is('dashboard'))
-                             <li class="nav-item active">
+                             <li class="nav-item mr-1 active">
                                  <a class="nav-link" href="{{route('dashboard',Auth::user()->acctype)}}">Dashboard</a>
                              </li>
                          @else
