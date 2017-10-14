@@ -52,7 +52,7 @@
                                 <option value="sponsor">Sponsor</option>
                             </select>
                         </div>
-
+                        <input type="hidden" name="aboutme" value="New User">
                         <div class="form-group">
                             <div class="checkbox">
                                 <label>

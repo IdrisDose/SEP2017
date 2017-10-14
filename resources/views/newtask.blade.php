@@ -16,7 +16,6 @@
                         <div class="form-group basic-textarea">
                             <label for="description" class="sr-only">Description</label>
                             <textarea id="description"  class="form-control" name="description" required placeholder="Task Description" style="height: 160px; resize: none;"></textarea>
-
                         </div>
                         <div class="form-group">
                             <label for="price" class="sr-only">price</label>

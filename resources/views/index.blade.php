@@ -80,6 +80,7 @@
                                     </label>
                                 </div>
                             </div>
+                            <input type="hidden" name="aboutme" value="New User">
 
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">

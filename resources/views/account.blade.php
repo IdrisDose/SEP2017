@@ -62,13 +62,7 @@
                             <!-- About Me -->
                             <div class="col-md-8">
                                 <h4 class="mt-2"><span class="fa fa-id-card-o pull-xs-right"></span> About Me</h4>
-                                <p>
-                                    @if($user->hasAboutMe())
-                                        Something...
-                                    @else
-                                        Coming Soon....
-                                    @endif
-                                </p>
+                                <p>{{$user->aboutme}}</p>
                             </div>
                             <!-- Basic Details -->
                             <div class="col-md-4">
@@ -178,6 +172,13 @@
                                         </div>
                                     </div>
                                     @endif
+
+                                    <div class="form-group basic-textarea row">
+                                        <label class="col-md-3 col-form-label form-control-label">About Me</label>
+                                        <div class="col-md-9">
+                                            <textarea id="aboutme"  class="form-control" name="aboutme" required style="height: 160px; resize: none;">{{$user->aboutme}}</textarea>
+                                        </div>
+                                    </div>
                                     <div class="form-group row">
                                         <label class="col-md-3 col-form-label form-control-label"></label>
                                         <div class="col-md-9">
@@ -186,37 +187,6 @@
                                     </div>
                                 </form>
                             </div>
-
-                            <!--
-                            <div class="tab-pane fade" id="editlogin" role="tabpanel" aria-labelledby="edilogin-tab">
-                                <h4 class="m-y-2">Edit Login</h4>
-                                <form role="form">
-                                    <div class="form-group row">
-                                        <label class="col-md-3 col-form-label form-control-label">Username</label>
-                                        <div class="col-md-9">
-                                            <input class="form-control" type="text" value="{{Auth::user()->email}}">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-3 col-form-label form-control-label">Password</label>
-                                        <div class="col-md-9">
-                                            <input class="form-control" type="password" value="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-3 col-form-label form-control-label">Confirm password</label>
-                                        <div class="col-md-9">
-                                            <input class="form-control" type="password" value="">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-3 col-form-label form-control-label"></label>
-                                        <div class="col-md-9">
-                                            <input type="button" class="btn btn-primary" value="Save Changes">
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>-->
                         @endif
                     @endauth
                 </div>
