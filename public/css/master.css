@@ -364,15 +364,14 @@ code {
     float:left;
     height: 30px;
     width: 30px;
-    background-color: #cd724a;
+    background-color: #fff3e0;
     margin-right:3px;
     text-align: center;
-    color:white;
+    color:#cd724a;
     border-radius: 5px;
 }
 
 .navbar-brand {
-    border: 1px solid #cc714b;
     padding-right: 2.1%;
     padding-left: 3px;
 }
@@ -400,10 +399,6 @@ code {
 
 .nav-link:hover {
     color: lightgrey;
-}
-
-.nav-link.active, .nav-link:hover {
-    background-color: #ce7349 !important;
 }
 
 .sidebar {

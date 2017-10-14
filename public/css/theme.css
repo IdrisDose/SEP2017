@@ -1,6 +1,11 @@
 .custcolor{
     background-color: #ff6700 !important;
 }
+
+.gfmOrange{
+    color:#fff3e0;
+    background-color: #cd724a!important;
+}
 .btn-primary{
     background-color: #ce7349;
 }
@@ -50,11 +55,10 @@ label, h4,h1,h2,h3,th{
     color: black !important;
 }
 .nav-link:hover{
-    background: #ce7349;
+    background: #f98f5d;
 }
 .nav-item.active{
-    /* background: #f98f5d; */
-    background: #cc714b;
+    background: #f98f5d;
 }
 
 textarea{

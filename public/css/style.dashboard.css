@@ -74,7 +74,7 @@ table {
   transition: width 0.3s linear;
   width: calc(100% - 200px);
   /* background-color: #F8F8F8; */
-  background-color: #ce7349;
+  background-color: #969696;
   min-height:100vh;
 }
 
@@ -444,7 +444,7 @@ nav.side-navbar li {
 }
 
 nav.side-navbar li.active a {
-  background: #ce7349;
+  background: #969696;
 }
 
 nav.side-navbar li ul.collapse a {
