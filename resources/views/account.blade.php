@@ -68,6 +68,7 @@
                             <div class="col-md-4">
                                 <h4 class="mt-2"><span class="fa fa-id-card-o pull-xs-right"></span> Details</h4>
                                 <p>
+                                    Email: {{$user->email}}<br/>
                                     Website: {{$user->website}}<br/>
                                     Company: {{$user->company}}<br/>
                                     Account Type: {{$user->getAccType()}}<br/>

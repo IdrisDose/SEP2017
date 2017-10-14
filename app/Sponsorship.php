@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sponsorship extends Model
 {
-    protected $fillable = ['id','sponsor_id','student_id','active'];
+    protected $fillable = ['id','sponsor_id','student_id','amount','active'];
 
     public function sponsor(){
         return $this->belongsTo(User::class,'sponsor_id','id');

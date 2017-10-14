@@ -18,7 +18,7 @@ class CreateTasksTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('name');
             $table->mediumText('description');
-            $table->decimal('price',12,2)->default('0.00');
+            $table->decimal('price',12,2)->default('5.00');
             $table->boolean('active')->default('1');
             $table->boolean('completed')->default('0');
             $table->boolean('private')->default('0');

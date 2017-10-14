@@ -65,4 +65,19 @@ class FunctionController extends Controller
         }
         return back();
     }
+
+    public function editsponsor($id){
+        $sponsorship = Sponsorship::where('id',$id)->first();
+        return view('editsponsor',compact('sponsorship',$sponsorship));
+    }
+
+    public function savesponsor($id,Request $req){
+        $sponsorship = Sponsorship::where('id',$id)->first();
+        $sponsorship->amount = $req->input('amount');
+
+        if(Auth::user() && Auth::user()->isSponsor() && ($sponsorship->sponsor->id == Auth::user()->id)){
+            $sponsorship->save();
+            return redirect(route('dashboard',Auth::user()->acctype));
+        }
+    }
 }

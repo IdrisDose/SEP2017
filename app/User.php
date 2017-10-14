@@ -57,9 +57,9 @@ class User extends Authenticatable
     }
 
     public function getBalance(){
-        $count = $this->sponsoredBy();
-        if($count > 0){
-            $this->balance = ($count*5.00);
+        $list = Sponsorship::where('student_id',$this->id)->get();
+        foreach($list as $sponsorship){
+            $this->balance += $sponsorship->amount;
         }
         return $this->balance;
     }

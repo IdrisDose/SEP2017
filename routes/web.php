@@ -31,4 +31,6 @@ Route::group(['middleware'=>'auth'],function(){
     Route::put('/updateprofile/{id}', 'PageController@editaccount')->name('profile.update');
     Route::post('/sponsor', 'FunctionController@newsponsor')->name('sponsor.create');
     Route::delete('/sponsor/{id}', 'FunctionController@removesponsor')->name('sponsor.delete');
+    Route::get('/sponsor/{id}', 'FunctionController@editsponsor')->name('editsponsorship');
+    Route::PUT('/sponsor/{id}', 'FunctionController@savesponsor')->name('sponsor.save');
 });

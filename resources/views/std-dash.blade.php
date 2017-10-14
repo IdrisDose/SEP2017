@@ -64,15 +64,43 @@
                 <section class="statistics section-padding section-no-padding-bottom">
                   <div class="container-fluid">
                     <div class="row d-flex align-items-stretch">
-                      <div class="col-md-6">
-                          <!-- Income-->
+                     <!-- <div class="col-md-6">
+
                           <div class="wrapper income text-center align-middle">
-                            <div class="number">${{Auth::user()->getBalance()}} AUD</div><strong class="text-primary">All Income</strong>
+                            <div class="number">${{Auth::user()->balance}} AUD</div><strong class="text-primary">All Income</strong>
                             <p>Total amount recieved via tasks and sponsorships</p>
                           </div>
+                      </div>-->
+
+                      <div class="col-6">
+                          <div class="wrapper">
+                              <div class="d-flex align-items-center">
+                                  <h2 class="db-section-title center-text">Tasks to complete</h2>
+                              </div>
+                              <table class="table mx-auto">
+                                  <thead>
+                                      <tr>
+                                          <th>#</th>
+                                          <th>Name</th>
+                                          <th>Description</th>
+                                          <th>Owner</th>
+                                          <th>Price</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
+                                      </tr>
+                                  </tbody>
+                              </table>
+                          </div>
                       </div>
+
                       <div class="col-md-6">
-                        <!-- User Actibity-->
                         <div class="wrapper user-activity">
                           <h2 class="display h4 db-section-title">User Activity</h2>
                           <div class="number">0</div>
@@ -88,41 +116,9 @@
                       </div>
                     </div>
                   </div>
-                </section>
+              </section>
 
-                <section class="statistics section-padding">
-                    <div class="container-fluid">
-                        <div class="row d-flex align-items-md-stretch">
-                            <div class="col-6">
-                                <div class="wrapper">
-                                    <div class="d-flex align-items-center">
-                                        <h2 class="db-section-title center-text">Tasks to complete</h2>
-                                    </div>
-                                    <table class="table mx-auto">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Name</th>
-                                                <th>Description</th>
-                                                <th>Owner</th>
-                                                <th>Price</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+
             </div>
 
 @endsection
