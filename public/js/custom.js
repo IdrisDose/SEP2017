@@ -2,6 +2,7 @@
 $(document).ready(function() {
     // Check if body height is higher than window height :)
     $('#sponsSubmit').attr('disabled', 'disabled');
+    $('.imageupload').hide();
     $('#student_id').change(function(){
         if($("#myselect option:selected").val()!=''){
             $('#sponsSubmit').removeAttr('disabled');
@@ -32,6 +33,10 @@ function validateNav(){
     }else{
         window.document.location='/login';
     }
+}
+
+function ulImage(){
+    $('.imageupload').toggle();
 }
 
 jQuery(document).ready(function($) {

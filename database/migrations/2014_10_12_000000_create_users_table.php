@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('website')->default('N/A');
             $table->string('company')->default('N/A');
             $table->mediumText('aboutme');
+            $table->string('avatar')->default('user.png');
             $table->decimal('balance',12,2)->default('0.00');
             $table->integer('degree_id')->default('0');
             $table->boolean('active')->default('1');

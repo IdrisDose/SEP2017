@@ -7,19 +7,25 @@
 
             <div class="col-md-4 pull-lg-8 text-xs-center">
                 <h4 class="center-text">{{$user->name}} (ID: {{$user->id}})</h4>
-                <img src="//placehold.it/150" class="mx-auto d-block img-fluid rounded-circle" alt="avatar">
-                {{--
                 @auth
                     @if ($user->id==Auth::user()->id)
-                        <div class="mt-3">
+                        <a href="" onclick="event.preventDefault(); ulImage()">Edit Image</a>
+                    @endif
+                @endauth
+                <img src="{{ asset('/uploads/avatars/'.Auth::user()->avatar) }}" class="mx-auto d-block img-fluid rounded-circle" alt="avatar">
+
+                @auth
+                    @if ($user->id==Auth::user()->id)
+                        <div class="mt-3 imageupload">
                             <h6 class="m-t-2">Upload a different photo</h6>
-                            <label class="custom-file">
-                                <input type="file" id="file" class="custom-file-input dark-grey" disabled>
-                                <span class="custom-file-control">Choose file</span>
-                            </label>
+                            <form enctype="multipart/form-data" action="{{route('avatar.update')}}" method="post">
+                                <input type="file" name="avatar">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                <input type="submit" class="pull-right btn btn-sm btn-primary">
+                            </form>
                         </div>
                     @endif
-                @endauth--}}
+                @endauth
             </div>
 
             <div class="col-md-8 push-lg-4">

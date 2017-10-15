@@ -6,6 +6,7 @@ use App\User;
 use App\Degree;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; //add auth package
+use Image;
 
 
 class PageController extends Controller
@@ -36,6 +37,22 @@ class PageController extends Controller
     public function students(){
         $users = User::where('acctype','=','student')->get();
         return view('students',compact('users'));
+    }
+
+    public function updateavatar(Request $req){
+        var_dump($req->file());
+        if($req->hasFile('avatar')){
+            $avatar = $req->file('avatar');
+            $filename = Auth::user()->name.'.png';
+            Image::make($avatar)->resize(150,150)->save(public_path('/uploads/avatars/' . $filename ));
+            $user = Auth::user();
+            $user->avatar = $filename;
+            $user->save();
+
+            return back();
+        }
+        return redirect()->route('index');
+
     }
     public function login(){
         return view('login');

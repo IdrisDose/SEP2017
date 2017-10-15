@@ -502,3 +502,7 @@ select.form-control:not([size]):not([multiple]){
 .db-wrap{
     height: calc(100% - 60px);
 }
+
+.imageupload{
+    display: none;
+}

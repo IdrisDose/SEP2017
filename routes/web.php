@@ -22,6 +22,7 @@ Route::get('/help', 'PageController@help')->name('help');
 Auth::routes();
 
 Route::group(['middleware'=>'auth'],function(){
+    Route::post('/avatar', 'PageController@updateavatar')->name('avatar.update');
     Route::get('/admin', 'HomeController@admin')->name('admin');
     Route::get('/dashboard/{type}', 'HomeController@dash')->name('dashboard');
     Route::get('/task/{id}', 'FunctionController@task')->name('task');
@@ -33,4 +34,5 @@ Route::group(['middleware'=>'auth'],function(){
     Route::delete('/sponsor/{id}', 'FunctionController@removesponsor')->name('sponsor.delete');
     Route::get('/sponsor/{id}', 'FunctionController@editsponsor')->name('editsponsorship');
     Route::PUT('/sponsor/{id}', 'FunctionController@savesponsor')->name('sponsor.save');
+
 });
