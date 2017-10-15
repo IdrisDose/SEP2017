@@ -14,9 +14,15 @@
                             <input type="text" value="{{$sponsorship->student->name}}" disabled>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group{{ $errors->has('amount') ? ' has-error' : '' }}">
                             <label for="price" class="sr-only">price</label>
                             <input id="amount" type="text" class="form-control" name="amount" value="{{$sponsorship->amount}}">
+
+                            @if($errors->any())
+                                <span class="help-block">
+                                    <strong>{{ $errors->first() }}</strong>
+                                </span>
+                            @endif
                         </div>
 
                         <div class="form-group">

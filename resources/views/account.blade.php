@@ -53,7 +53,7 @@
                     @endauth
 
                     @if (Auth::User() && Auth::user()->isSponsor() && $user->isStudent())
-                        @if(!($user->alreadySponsored(Auth::user()->id)))
+                        @if(!($user->isSponsored(Auth::user()->id)))
                             <li class="nav-item">
                                 <a class="nav-link" href="{{route('dashboard')}}">Sponsor</a>
                             </li>

@@ -10,29 +10,38 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', 'PageController@index')->name('index');
-Route::get('/home', 'PageController@index')->name('index');
-Route::get('/register', 'PageController@register')->name('register');
-Route::get('/students', 'PageController@students')->name('students');
-Route::get('/sponsors', 'PageController@sponsors')->name('sponsors');
+Route::get('/', 'PageController@home')->name('index');
+Route::get('/home', 'PageController@home')->name('index');
+
 Route::get('/profile/{id}', 'PageController@account')->name('profile');
+Route::get('/sponsors', 'PageController@sponsors')->name('sponsors');
+Route::get('/students', 'PageController@students')->name('students');
 Route::get('/about', 'PageController@about')->name('about');
 Route::get('/help', 'PageController@help')->name('help');
 
 Auth::routes();
 
-Route::group(['middleware'=>'auth'],function(){
-    Route::post('/avatar', 'PageController@updateavatar')->name('avatar.update');
-    Route::get('/admin', 'HomeController@admin')->name('admin');
-    Route::get('/dashboard', 'HomeController@dash')->name('dashboard');
-    Route::get('/task/{id}', 'FunctionController@task')->name('task');
-    Route::get('/tasks', 'FunctionController@tasklist')->name('tasks');
-    Route::get('/newtask', 'FunctionController@taskform')->name('newtask');
-    Route::post('/tasks', 'FunctionController@newtask')->name('task.create');
-    Route::put('/updateprofile/{id}', 'PageController@editaccount')->name('profile.update');
-    Route::post('/sponsor', 'FunctionController@newsponsor')->name('sponsor.create');
-    Route::delete('/sponsor/{id}', 'FunctionController@removesponsor')->name('sponsor.delete');
-    Route::get('/sponsor/{id}', 'FunctionController@editsponsor')->name('editsponsorship');
-    Route::PUT('/sponsor/{id}', 'FunctionController@savesponsor')->name('sponsor.save');
+Route::group(['middleware'=>'auth'], function(){
 
+    //Admin
+    Route::get('/admin', 'PageController@admin')->name('admin');
+
+    //User
+    Route::get('/dashboard', 'PageController@dash')->name('dashboard');
+    Route::put('/updateprofile/{id}', 'FunctionController@editAccount')->name('profile.update');
+    Route::post('/avatar', 'FunctionController@updateAvatar')->name('avatar.update');
+    Route::post('/user', 'FunctionController@addFunds')->name('user.addfunds');
+
+    //Task
+    Route::get('/task/{id}', 'PageController@task')->name('task');
+    Route::get('/tasks', 'PageController@taskList')->name('tasks');
+
+    Route::get('/newtask', 'FunctionController@taskForm')->name('newtask');
+    Route::post('/task', 'FunctionController@newTask')->name('task.create');
+
+    //Sponsory
+    Route::post('/sponsor', 'FunctionController@newSponsor')->name('sponsor.create');
+    Route::get('/sponsor/{id}', 'FunctionController@editSponsor')->name('editsponsorship');
+    Route::put('/sponsor/{id}', 'FunctionController@saveSponsor')->name('sponsor.save');
+    Route::delete('/sponsor/{id}', 'FunctionController@removeSponsor')->name('sponsor.delete');
 });

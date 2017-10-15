@@ -14,6 +14,30 @@
             <div class="main-menu">
                 <ul id="side-main-menu" class="side-menu list-unstyled">
                     <li class="active"><a href="" disabled> <i class="icon-home"></i><span>Home</span></a></li>
+                    <li>
+                        <a href=""></a>
+                        <form class="custom-form" method="POST" action="{{ route('user.addfunds') }}">
+                            {{ csrf_field() }}
+
+                            <div class="form-group{{ $errors->any() ? ' has-error' : '' }}">
+                                <label for="price">Add Funds:</label>
+                                <input id="balance" type="text" class="form-control" name="balance" value="0.00">
+
+                                @if($errors->any())
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first() }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-sm">
+                                    Add Funds
+                                </button>
+                            </div>
+                        </form>
+
+                    </li>
                 </ul>
             </div>
         </div>
@@ -48,7 +72,7 @@
                             <div class="wrapper count-title d-flex blue">
                                 <div class="icon"><i class="icon-padnote"></i></div>
                                 <div class="name"><strong class="text-uppercase">Balance</strong>
-                                    <div class="count-number">${{Auth::user()->balance}} AUD</div>
+                                    <div class="count-number">{{Auth::user()->getBalance()}} AUD</div>
                                 </div>
                             </div>
                         </div>
@@ -148,7 +172,7 @@
                                         <select id="student_id" class="form-control" name="student_id" >
                                             <option value="" selected disabled>Choose a Student</option>
                                             @foreach( $students as $student)
-                                                @if(!($student->alreadySponsored(Auth::user()->id)))
+                                                @if(!($student->studentIsSponsored(Auth::user()->id)))
                                                     <option value="{{$student->id}}">{{$student->name}}</option>
                                                 @endif
                                             @endforeach

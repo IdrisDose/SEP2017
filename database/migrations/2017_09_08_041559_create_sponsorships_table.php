@@ -17,7 +17,7 @@ class CreateSponsorshipsTable extends Migration
           $table->increments('id');
           $table->integer('sponsor_id')->unsigned();
           $table->integer('student_id')->unsigned();
-          $table->decimal('amount',12,2)->default('0.00');
+          $table->decimal('amount',12,2)->default('5.00');
           $table->boolean('active')->default('1');
           $table->timestamps();
 

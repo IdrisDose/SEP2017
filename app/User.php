@@ -57,22 +57,19 @@ class User extends Authenticatable
     }
 
     public function getBalance(){
-        $list = Sponsorship::where('student_id',$this->id)->get();
-        foreach($list as $sponsorship){
-            $this->balance += $sponsorship->amount;
-        }
-        return $this->balance;
+        return '$' . number_format($this->balance, 2);
     }
 
     public function tasks(){
         return $this->hasMany(Task::class);
     }
 
-    public function alreadySponsored($id){
+    public function studentIsSponsored($id){
         $sponsor = Sponsorship::where('student_id',$this->id)->where('sponsor_id',$id)->get();
         $count = count($sponsor);
         return ($count!=0);
     }
+    
     public function sponsoredBy(){
         $list = Sponsorship::where('student_id',$this->id)->get();
         $count = count($list);
@@ -114,5 +111,30 @@ class User extends Authenticatable
         } else {
             return 0;
         }
+    }
+
+    public function updateBalance(){
+        $list = Sponsorship::where('sponsor_id',$this->id)->get();
+        foreach($list as $spn){
+            $this->balance -= $spn->amount;
+            $this->save();
+        }
+    }
+
+    //Adds balance to a user
+    public function addBalance($amount){
+        $this->balance += $amount;
+        $this->save();
+    }
+
+    //Removes Balance from user
+    public function payout($amount){
+        $this->balance -= $amount;
+        $this->save();
+    }
+
+    public function setAvatar(){
+        $this->avatar = $filename;
+        $this->save();
     }
 }
