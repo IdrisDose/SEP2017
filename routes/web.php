@@ -24,7 +24,7 @@ Auth::routes();
 Route::group(['middleware'=>'auth'],function(){
     Route::post('/avatar', 'PageController@updateavatar')->name('avatar.update');
     Route::get('/admin', 'HomeController@admin')->name('admin');
-    Route::get('/dashboard/{type}', 'HomeController@dash')->name('dashboard');
+    Route::get('/dashboard', 'HomeController@dash')->name('dashboard');
     Route::get('/task/{id}', 'FunctionController@task')->name('task');
     Route::get('/tasks', 'FunctionController@tasklist')->name('tasks');
     Route::get('/newtask', 'FunctionController@taskform')->name('newtask');

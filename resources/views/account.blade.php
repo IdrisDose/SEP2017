@@ -12,7 +12,7 @@
                         <a href="" onclick="event.preventDefault(); ulImage()">Edit Image</a>
                     @endif
                 @endauth
-                <img src="{{ asset('/uploads/avatars/'.Auth::user()->avatar) }}" class="mx-auto d-block img-fluid rounded-circle" alt="avatar">
+                <img src="{{ asset('/uploads/avatars/' . $user->avatar) }}" class="mx-auto d-block img-fluid rounded-circle" alt="avatar">
 
                 @auth
                     @if ($user->id==Auth::user()->id)

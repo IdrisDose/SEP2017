@@ -30,7 +30,7 @@ class HomeController extends Controller
     public function admin(){
         return view('admin');
     }
-    public function dash($type){
+    public function dash(){
         $students = User::where('acctype','=','student')->get();
         $sponsorships = Sponsorship::all();
         if(Auth::user()->isStudent()){

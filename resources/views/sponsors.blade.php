@@ -19,7 +19,7 @@
                             <div class="card profile-card" onclick="window.document.location='/profile/{{$userObj->id}}';" style="cursor: pointer;">
                                 <div class="card-block">
                                     <div class="col-md-12 center-text  mt-4">
-                                        <img src="{{ asset('/uploads/avatars/'.Auth::user()->avatar) }}" class="img-fluid rounded-circle mb-2" alt="" title="Sponsor Image">
+                                        <img src="{{ asset('/uploads/avatars/' . $userObj->avatar) }}" height="100" width="100" class="img-fluid rounded-circle mb-2" alt="" title="Sponsor Image">
                                     </div>
                                     <hr>
                                 </div>
