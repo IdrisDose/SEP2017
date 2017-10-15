@@ -24,7 +24,7 @@
                             <hr>
                         </div>
                         <div class="card-block center-text">
-                            <h3>{{$user->name}}</h3>
+                            <h3>{{$user->getName()}}</h3>
                             <span class="text-muted">Click to view profile</span>
 
                             <div class="col-md-12 mb-2">Degree: {{$user->getDegree()}}</div>

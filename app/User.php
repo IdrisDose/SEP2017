@@ -14,9 +14,8 @@ class User extends Authenticatable
     * @var array
     */
     protected $fillable = [
-        'id','name', 'email', 'password','acctype','website','company','aboutme','avatar','balance', 'degree_id', 'active', 'admin',
+        'id','fname','lname', 'email', 'password','acctype','website','company','aboutme','avatar','balance', 'degree_id', 'active', 'admin',
     ];
-
     /**
     * The attributes that should be hidden for arrays.
     *
@@ -25,7 +24,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token', 'admin',
     ];
-
     public function isAdmin(){
         return $this->admin;
     }
@@ -47,6 +45,12 @@ class User extends Authenticatable
     public function isSponsoring(){
         return $this->sponsoring()>0?'Yes':'No';
     }
+
+    public function hasResume(){
+        $list = Document::where('user_id',$this->id)->get();
+        $amount = count($list);
+        return  ($amount!=0);
+    }
     public function getAccType(){
         return ucfirst($this->acctype);
     }
@@ -59,9 +63,16 @@ class User extends Authenticatable
     public function getBalance(){
         return '$' . number_format($this->balance, 2);
     }
+    public function getName(){
+        return $this->fname.' '. $this->lname;
+    }
 
     public function tasks(){
         return $this->hasMany(Task::class);
+    }
+
+    public function documents(){
+        return $this->hasMany(Document::class);
     }
 
     public function studentIsSponsored($id){
@@ -69,7 +80,7 @@ class User extends Authenticatable
         $count = count($sponsor);
         return ($count!=0);
     }
-    
+
     public function sponsoredBy(){
         $list = Sponsorship::where('student_id',$this->id)->get();
         $count = count($list);
@@ -133,7 +144,7 @@ class User extends Authenticatable
         $this->save();
     }
 
-    public function setAvatar(){
+    public function setAvatar($filename){
         $this->avatar = $filename;
         $this->save();
     }

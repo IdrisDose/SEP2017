@@ -24,7 +24,7 @@
                                     <hr>
                                 </div>
                                 <div class="card-block center-text">
-                                    <h3>{{$userObj->name}}</h3>
+                                    <h3>{{$userObj->getName()}}</h3>
                                     <span class="text-muted">Click to view profile</span>
                                 </div>
                             </div>

@@ -14,5 +14,6 @@
     <script src="{{asset('js/front.js')}}"></script>
 @endif
 <script src="{{asset('js/mdb.min.js')}}" type="text/javascript" ></script>
+<script src="{{asset('js/bootstrap-filestyle.min.js')}}"></script>
 <script src="{{asset('js/respond.matchmedia.addListener.min.js')}}" type="text/javascript" ></script>
 <script src="{{asset('js/respond.min.js')}}" type="text/javascript" ></script>

@@ -44,4 +44,7 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/sponsor/{id}', 'FunctionController@editSponsor')->name('editsponsorship');
     Route::put('/sponsor/{id}', 'FunctionController@saveSponsor')->name('sponsor.save');
     Route::delete('/sponsor/{id}', 'FunctionController@removeSponsor')->name('sponsor.delete');
+
+    //Documents
+    Route::resource('documents', 'DocumentController');
 });

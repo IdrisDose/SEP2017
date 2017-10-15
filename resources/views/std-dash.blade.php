@@ -6,7 +6,7 @@
         <div class="side-navbar-wrapper">
             <div class="sidenav-header d-flex align-items-center justify-content-center">
                 <div class="sidenav-header-inner text-center"><img src="{{ asset('/uploads/avatars/'.Auth::user()->avatar) }}" alt="person" class="img-fluid rounded-circle">
-                    <h2 class="h5 text-uppercase">{{Auth::user()->name}}</h2><span class="text-uppercase">{{Auth::user()->acctype}}</span>
+                    <h2 class="h5 text-uppercase">{{Auth::user()->getName()}}</h2><span class="text-uppercase">{{Auth::user()->acctype}}</span>
                 </div>
                 <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"> <strong>B</strong><strong class="text-primary">D</strong></a></div>
             </div>

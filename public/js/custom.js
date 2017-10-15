@@ -11,7 +11,8 @@ $(document).ready(function() {
             console.log("Disabled");
         }
     });
-
+    $(":file").filestyle();
+    
     $( 'html' ).addClass("loadClass");
 });
 function animatedLogo(p1){

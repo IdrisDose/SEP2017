@@ -27,12 +27,16 @@
                         <h2 class="mt-2">Register New Account</h2>
                         <form class="custom-form" method="POST" action="{{ route('register') }}">
                             {{ csrf_field() }}
-                            <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <div class="form-group{{ $errors->has('fname')||$errors->has('lname') ? ' has-error' : '' }}">
                                 <label for="name" class="sr-only">Name</label>
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus placeholder="Name">
-                                @if ($errors->has('name'))
+                                <div class="input-group">
+                                    <input id="fname" type="text" class="form-control col-md-5" name="fname" value="{{ old('fname') }}" required autofocus placeholder="First Name">
+                                    <span class="col-md-1"></span>
+                                    <input id="lname" type="text" class="form-control col-md-6 " name="lname" value="{{ old('lname') }}" required autofocus placeholder="Last Name">
+                                </div>
+                                @if ($errors->has('fname')||$errors->has('fname'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('fname') }}{{ $errors->first('lname') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -91,20 +95,53 @@
                         </form>
                     </div>
                 </div>
+
+
             </div>
         @endguest
 
         @auth
             <div class="row">
                 <div class="col-md-8 pad-3 animated slideInUp mx-auto">
-                    <h1 class="center-text ">Welcome Back, {{ Auth::user()->name }}</h1>
-                    <p class="center-text ">Quick DEBUG (REMOVE WHEN PUBLISH)</p>
-                    <ul class="list-group">
-                        <li class="list-group-item">AccName: {{Auth::user()->name}}</li>
-                        <li class="list-group-item">AccType: {{Auth::user()->acctype}}</li>
-                        <li class="list-group-item">IsActive?: {{Auth::user()->isActive()}}</li>
-                        <li class="list-group-item">Degree?: {{Auth::user()->getDegree()}}</li>
-                    </ul>
+                    <h1 class="center-text ">Welcome Back, {{ Auth::user()->getName() }}</h1>
+                    @if(Auth::user()->isStudent() && (Auth::user()->sponsoredBy()>=1))
+                        <table class="table table-hover table-striped">
+                            <tbody>
+                                @foreach(Auth::user()->student_sponsor_list() as $sponsorship)
+                                    <tr>
+                                        <td>
+                                            <strong>{{$sponsorship->sponsor->getName()}}</strong> sponsored you on <strong>`{{$sponsorship->created_at}}`</strong>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @elseif(Auth::user()->isSponsor() && (Auth::user()->sponsoring()>=1))
+                        <table class="table table-hover table-striped">
+                            <tbody>
+                                @foreach(Auth::user()->sponsor_student_list() as $sponsorship)
+                                    <tr>
+                                        <td>
+                                            You are sponsoring <strong>{{$sponsorship->student->getName()}}</strong> on <strong>`{{$sponsorship->created_at}}`</strong>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @else
+                        @if(Auth::user()->isStudent())
+                            <p class="text-center">
+                                You have not been sponsored yet!
+                            </p>
+                        @else
+                            <p class="text-center">
+                                You are not sponsoring anybody!
+                            </p>
+                        @endif
+                    @endif
+                    <div class="mx-auto col-md-12 text-center">
+                        <a href="{{route('profile',Auth::user()->id)}}" class="btn btn-primary col-md-3">Go to Profile</a> <a href="{{route('dashboard')}}" class="btn btn-primary col-md-4">Go to Dashboard</a> <a href="{{route('tasks')}}" class="btn btn-primary col-md-3">View Tasks</a>
+                    </div>
                 </div>
             </div>
         @endauth

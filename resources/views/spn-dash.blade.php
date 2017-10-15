@@ -7,7 +7,7 @@
         <div class="side-navbar-wrapper">
             <div class="sidenav-header d-flex align-items-center justify-content-center">
                 <div class="sidenav-header-inner text-center"><img src="{{ asset('/uploads/avatars/'.Auth::user()->avatar) }}" alt="person" class="img-fluid rounded-circle">
-                    <h2 class="h5 text-uppercase">{{Auth::user()->name}}</h2><span class="text-uppercase">{{Auth::user()->acctype}}</span>
+                    <h2 class="h5 text-uppercase">{{Auth::user()->getName()}}</h2><span class="text-uppercase">{{Auth::user()->acctype}}</span>
                 </div>
                 <div class="sidenav-header-logo"><a href="index.html" class="brand-small text-center"> <strong>B</strong><strong class="text-primary">D</strong></a></div>
             </div>
@@ -119,7 +119,7 @@
                                                     @endphp
                                                     <tr>
                                                         <td onclick="window.document.location='/profile/{{$uid}}';" style="cursor: pointer;">{{$uid}}</td>
-                                                        <td onclick="window.document.location='/profile/{{$uid}}';" style="cursor: pointer;">{{$student->name}}</td>
+                                                        <td onclick="window.document.location='/profile/{{$uid}}';" style="cursor: pointer;">{{$student->getName()}}</td>
                                                         <td onclick="window.document.location='/profile/{{$uid}}';" style="cursor: pointer;">{{$student->sponsoredBy()}}</td>
                                                         <td>
                                                             <a href="" onclick="event.preventDefault(); document.getElementById('stop-sponsor-form').submit();" class="btn btn-danger btn-sm">Cancel Sponsorship</a>
@@ -173,7 +173,7 @@
                                             <option value="" selected disabled>Choose a Student</option>
                                             @foreach( $students as $student)
                                                 @if(!($student->studentIsSponsored(Auth::user()->id)))
-                                                    <option value="{{$student->id}}">{{$student->name}}</option>
+                                                    <option value="{{$student->id}}">{{$student->getName()}}</option>
                                                 @endif
                                             @endforeach
                                         </select>

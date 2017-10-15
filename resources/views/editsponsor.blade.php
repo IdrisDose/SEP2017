@@ -11,7 +11,7 @@
                         {{ method_field('PUT') }}
 
                         <div class="form-group">
-                            <input type="text" value="{{$sponsorship->student->name}}" disabled>
+                            <input type="text" value="{{$sponsorship->student->getName()}}" disabled>
                         </div>
 
                         <div class="form-group{{ $errors->has('amount') ? ' has-error' : '' }}">

@@ -7,12 +7,16 @@
                     <h2 class="mt-2">Register New Account</h2>
                     <form class="custom-form" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('fname')||$errors->has('lname') ? ' has-error' : '' }}">
                             <label for="name" class="sr-only">Name</label>
-                            <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus placeholder="Name">
-                            @if ($errors->has('name'))
+                            <div class="input-group">
+                                <input id="fname" type="text" class="form-control col-md-5" name="fname" value="{{ old('fname') }}" required autofocus placeholder="First Name">
+                                <span class="col-md-1"></span>
+                                <input id="lname" type="text" class="form-control col-md-6 " name="lname" value="{{ old('lname') }}" required autofocus placeholder="Last Name">
+                            </div>
+                            @if ($errors->has('fname')||$errors->has('fname'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('name') }}</strong>
+                                    <strong>{{ $errors->first('fname') }}{{ $errors->first('lname') }}</strong>
                                 </span>
                             @endif
                         </div>

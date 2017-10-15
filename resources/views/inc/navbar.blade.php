@@ -93,7 +93,7 @@
                      @else
                          <!-- Dropdown -->
                          <li class="nav-item dropdown">
-                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> {{Auth::user()->name}}</a>
+                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user" aria-hidden="true"></i> {{Auth::user()->fname}}</a>
                              <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
                                  <a class="dropdown-item custdp" href="{{route('profile',Auth::user()->id)}}">Profile</a>
                                  <!-- <div class="dropdown-divider"></div>

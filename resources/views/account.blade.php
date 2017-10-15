@@ -6,7 +6,7 @@
         <div class="row my-2">
 
             <div class="col-md-4 pull-lg-8 text-xs-center">
-                <h4 class="center-text">{{$user->name}} (ID: {{$user->id}})</h4>
+                <h4 class="center-text">{{$user->getName()}} (ID: {{$user->id}})</h4>
                 @auth
                     @if ($user->id==Auth::user()->id)
                         <a href="" onclick="event.preventDefault(); ulImage()">Edit Image</a>
@@ -16,12 +16,12 @@
 
                 @auth
                     @if ($user->id==Auth::user()->id)
-                        <div class="mt-3 imageupload">
+                        <div class="mt-3 imageupload center-text">
                             <h6 class="m-t-2">Upload a different photo</h6>
                             <form enctype="multipart/form-data" action="{{route('avatar.update')}}" method="post">
-                                <input type="file" name="avatar">
                                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                <input type="submit" class="pull-right btn btn-sm btn-primary">
+                                <input type="file" id="avatar" name="avatar" class="filestyle" data-text="BROWSE" data-placeholder="No file..." data-btnClass="btn-primary btn-sm">
+                                <button type="submit" class="btn btn-sm btn-primary " text="UPLOAD">UPLOAD</button>
                             </form>
                         </div>
                     @endif
@@ -47,7 +47,9 @@
                         @if ($user->id==Auth::user()->id)
                             <li class="nav-item">
                                 <a class="nav-link tab" id="edit-tab" data-toggle="tab" href="#edit" role="tab" aria-controls="edit" onclick="checkScrollBar()">Edit Details</a>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link tab" id="ulresume-tab" data-toggle="tab" href="#ulresume" role="tab" aria-controls="ulresume">Upload Resume</a>
                             </li>
                         @endif
                     @endauth
@@ -89,6 +91,10 @@
                                     @if($user->isSponsor())
                                         Has Sponsored? {{$user->isSponsoring()}}
                                     @endif
+
+                                    @if($user->hasResume())
+                                        <br/> Resume: <a href="{{$user->documents()->latest()->first()->url}}" target="_blank" class="">Link</a>
+                                    @endif
                                 </p>
                             </div>
                         </div>
@@ -105,7 +111,7 @@
                                             @foreach($user->student_sponsor_list() as $sponsorship)
                                                 <tr>
                                                     <td>
-                                                        <strong>{{$sponsorship->sponsor->name}}</strong> sponsored this student on <strong>`{{$sponsorship->created_at}}`</strong>
+                                                        <strong>{{$sponsorship->sponsor->getName()}}</strong> sponsored this student on <strong>`{{$sponsorship->created_at}}`</strong>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -120,7 +126,7 @@
                                             @foreach($user->sponsor_student_list() as $sponsorship)
                                                 <tr>
                                                     <td>
-                                                        <strong>{{$user->name}}</strong> sponsored <strong>{{$sponsorship->student->name}}</strong> on <strong>`{{$sponsorship->created_at}}`</strong>
+                                                        <strong>{{$user->getName()}}</strong> sponsored <strong>{{$sponsorship->student->getName()}}</strong> on <strong>`{{$sponsorship->created_at}}`</strong>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -141,10 +147,15 @@
                                     {{ csrf_field() }}
                                     {{ method_field('PUT')}}
                                     <div class="form-group row">
-                                        <label class="col-md-3 col-form-label form-control-label">Name</label>
+                                        <label for="name" class="sr-only">Name</label>
                                         <div class="col-md-9">
-                                            <input class="form-control" type="text" value="{{Auth::user()->name}}" name="name">
+                                            <div class="input-group">
+                                                <input id="fname" type="text" class="form-control col-md-6" name="fname" value="{{ Auth::user()->fname }}" required autofocus placeholder="First Name">
+                                                <span class="col-md-1"></span>
+                                                <input id="lname" type="text" class="form-control col-md-6 " name="lname" value="{{ Auth::user()->lname }}" required autofocus placeholder="Last Name">
+                                            </div>
                                         </div>
+
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-md-3 col-form-label form-control-label">Email</label>
@@ -166,14 +177,14 @@
                                         </div>
                                     </div>
 
-                                    @if(Auth::user() && Auth::user()->isStudent())
+                                    @if(Auth::user()->isStudent())
                                     <div class="form-group row">
                                         <label class="col-md-3 col-form-label form-control-label">Qualification</label>
                                         <div class="col-md-9">
                                             <select class="form-control" name="degree_id">
                                                 <option value="0" selected disabled>Degree Level...</option>
                                                 @foreach($degrees as $degree)
-                                                    <option value="{{$degree->id}}" {{ Auth::user()->degree_id == $degree->id ? 'selected="selected"' : '' }}>{{$degree->name}}</option>
+                                                    <option value="{{$degree->id}}" {{ Auth::user()->degree_id == $degree->id ? 'selected="selected"' : '' }}>{{$degree->getName()}}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -192,6 +203,31 @@
                                             <input type="submit" class="btn btn-primary" value="Save Changes">
                                         </div>
                                     </div>
+                                </form>
+
+                            </div>
+                        @endif
+                    @endauth
+                    @auth
+                        @if ($user->id==Auth::user()->id &&Auth::user()->isStudent())
+
+                            <div class="tab-pane fade" id="ulresume" role="tabpanel" aria-labelledby="ulresume">
+                                <h4 class="m-y-2">Upload Resume</h4>
+                                <form enctype="multipart/form-data" action="/documents" method="post">
+                                    <div class="form-group row">
+                                        <div class="col-md-9">
+                                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                            <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                                            <input type="file" id="file" name="file" class="filestyle" data-text="BROWSE" data-placeholder="No file..." data-btnClass="btn-primary btn-sm">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-3 col-form-label form-control-label"></label>
+                                        <div class="col-md-9">
+                                            <button type="submit" class="btn btn-sm btn-primary " text="UPLOAD">UPLOAD</button>
+                                        </div>
+                                    </div>
+
                                 </form>
                             </div>
                         @endif

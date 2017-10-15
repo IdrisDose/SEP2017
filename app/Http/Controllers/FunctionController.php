@@ -8,6 +8,7 @@ use App\Task;
 use App\Sponsorship;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; //add auth package
+use Image;
 
 class FunctionController extends Controller
 {
@@ -36,10 +37,14 @@ class FunctionController extends Controller
     }
 
     public function updateAvatar(Request $req){
-        var_dump($req->file());
+        $req->validate([
+           'avatar' => 'required|image'
+        ]);
+
         if($req->hasFile('avatar')){
             $avatar = $req->file('avatar');
-            $filename = Auth::user()->id.'-'.Auth::user()->name.'.png';
+            $name = str_replace(' ', '_', Auth::user()->getName());
+            $filename = Auth::user()->id.'-'.$name.'.png';
             Image::make($avatar)->resize(150,150)->save(public_path('/uploads/avatars/' . $filename ));
             $user = Auth::user();
             $user->setAvatar($filename);
@@ -126,6 +131,7 @@ class FunctionController extends Controller
         }
         return back();
     }
+
 
 
     private function sponsorCheck($amount){
