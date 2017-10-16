@@ -48,9 +48,12 @@
                             <li class="nav-item">
                                 <a class="nav-link tab" id="edit-tab" data-toggle="tab" href="#edit" role="tab" aria-controls="edit" onclick="checkScrollBar()">Edit Details</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link tab" id="ulresume-tab" data-toggle="tab" href="#ulresume" role="tab" aria-controls="ulresume">Upload Resume</a>
-                            </li>
+                            
+                            @if($user->isStudent())
+                                <li class="nav-item">
+                                    <a class="nav-link tab" id="ulresume-tab" data-toggle="tab" href="#ulresume" role="tab" aria-controls="ulresume">Upload Resume</a>
+                                </li>
+                            @endif
                         @endif
                     @endauth
 
@@ -140,7 +143,6 @@
 
                     @auth
                         @if ($user->id==Auth::user()->id)
-
                             <div class="tab-pane fade" id="edit" role="tabpanel" aria-labelledby="edit-tab">
                                 <h4 class="m-y-2">Edit Details</h4>
                                 <form role="form" action="{{route('profile.update',Auth::user()->id)}}" method="POST">
@@ -208,8 +210,9 @@
                             </div>
                         @endif
                     @endauth
+
                     @auth
-                        @if ($user->id==Auth::user()->id &&Auth::user()->isStudent())
+                        @if ($user->id==Auth::user()->id && Auth::user()->isStudent())
 
                             <div class="tab-pane fade" id="ulresume" role="tabpanel" aria-labelledby="ulresume">
                                 <h4 class="m-y-2">Upload Resume</h4>
