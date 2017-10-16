@@ -25,32 +25,31 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <div class="wrapper count-title d-flex purple">
-                                    <div class="icon"><i class="icon-user"></i></div>
-                                    <div class="name"><strong class="text-uppercase">Tasks Pending</strong>
+
+                                    <div class="name"><strong class="text-uppercase"><i class="fa fa-hourglass-start" aria-hidden="true"></i> Tasks Pending</strong>
                                         <div class="count-number mt-3">0</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="wrapper count-title d-flex green">
-                                    <div class="icon"><i class="icon-bill"></i></div>
-                                    <div class="name"><strong class="text-uppercase">Tasks Complete</strong><span>Last 7 days</span>
+
+                                    <div class="name"><strong class="text-uppercase"><i class="fa fa-check" aria-hidden="true"></i> Tasks Complete</strong><span>Last 7 days</span>
                                         <div class="count-number">0</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="wrapper count-title d-flex blue">
-                                    <div class="icon"><i class="icon-padnote"></i></div>
-                                    <div class="name"><strong class="text-uppercase">Balance</strong>
+
+                                    <div class="name"><strong class="text-uppercase"> Balance</strong>
                                         <div class="count-number mt-3">${{Auth::user()->getBalance()}} AUD</div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-3">
                                 <div class="wrapper count-title d-flex red">
-                                    <div class="icon"><i class="icon-check"></i></div>
-                                    <div class="name"><strong class="text-uppercase">Sponsors</strong>
+                                    <div class="name"><strong class="text-uppercase"><i class="fa fa-users" aria-hidden="true"></i> Sponsors</strong>
                                         <div class="count-number mt-3">{{Auth::user()->sponsoredBy()}}</div>
                                     </div>
                                 </div>

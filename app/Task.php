@@ -21,4 +21,7 @@ class Task extends Model
         $owner = User::where('id',$this->user_id)->first();
         return $owner->name;
     }
+    public function owner(){
+        return $this->belongsTo(User::class);
+    }
 }
