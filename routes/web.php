@@ -41,8 +41,8 @@ Route::group(['middleware'=>'auth'], function(){
 
     //Sponsory
     Route::post('/sponsor', 'FunctionController@newSponsor')->name('sponsor.create');
-    Route::get('/sponsor/{id}', 'FunctionController@editSponsor')->name('editsponsorship');
-    Route::put('/sponsor/{id}', 'FunctionController@saveSponsor')->name('sponsor.save');
+    Route::get('/sponsor/{id}', 'FunctionController@editSponsor')->name('sponsorship.edit');
+    Route::put('/sponsor/{id}', 'FunctionController@saveSponsor')->name('sponsorship.update');
     Route::delete('/sponsor/{id}', 'FunctionController@removeSponsor')->name('sponsor.delete');
 
     //Documents

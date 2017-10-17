@@ -107,7 +107,7 @@
                                                             <form id="stop-sponsor-form" action="{{ route('sponsor.delete', $uid) }}" method="POST" style="display: none;">{{ csrf_field() }} {{ method_field('DELETE') }}</form>
                                                         </td>
                                                         <td>
-                                                            <a class="btn btn-primary btn-sm" href="{{route('editsponsorship',$sponsorship->id)}}">Edit</a>
+                                                            <a class="btn btn-primary btn-sm" href="{{route('sponsorship.edit',$sponsorship->id)}}">Edit</a>
                                                         </td>
                                                     </tr>
                                                 @endif

@@ -65,10 +65,11 @@ class FunctionController extends Controller
     public function newSponsor(Request $req){
         $data = $req->all();
         $sponsorship = new Sponsorship();
-
+        $student = User::where('id',$data['student_id'])->first();
         if(Auth::user()->isSponsor()){
             $sponsorship->create($data);
-            Auth::user()->updateBalance();
+            Auth::user()->updateSponsorBalance();
+            $student->updateStudentBalance();
         }
         return back();
     }
@@ -76,7 +77,8 @@ class FunctionController extends Controller
     public function removeSponsor($id){
         if(Auth::user() && Auth::user()->isSponsor()){
             $sponsor = Auth::user()->id;
-            $sponsorship = Sponsorship::where('student_id',$id)->where('sponsor_id',$sponsor);
+            $sponsorship = Sponsorship::where('student_id',$id)->where('sponsor_id',$sponsor)->first();
+            User::where('id',$id)->first()->payout($sponsorship->amount);
             $sponsorship->delete();
             return redirect(route('dashboard'));
         }
@@ -98,7 +100,10 @@ class FunctionController extends Controller
 
             $user = Auth::user();
             $amount = $req->input('amount');
+            $student = $sponsorship->student()->first();
 
+
+            $student->payout($sponsorship->amount);
             $sponsorship->amount = $amount;
             //If user has enough money
             if($user->balance >= $sponsorship->amount){
@@ -107,6 +112,8 @@ class FunctionController extends Controller
                 }
                 $user->payout($amount);
                 $sponsorship->save();
+
+                $student->addBalance($amount);
             } else{
                 return back()->withInput()->withErrors(['You do not have enough money']);
             }

@@ -6,7 +6,7 @@
                 <!--<div class=" center-text grad-content-bg">-->
                 <div class="center-text mb-3">
                     <h2 class="mt-2">Edit Sponsorship</h2>
-                    <form class="custom-form" method="POST" action="{{ route('sponsor.save',$sponsorship->id) }}">
+                    <form class="custom-form" method="POST" action="{{ route('sponsorship.update',$sponsorship->id) }}">
                         {{ csrf_field() }}
                         {{ method_field('PUT') }}
 

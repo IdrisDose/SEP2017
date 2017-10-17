@@ -124,12 +124,22 @@ class User extends Authenticatable
         }
     }
 
-    public function updateBalance(){
+    public function updateSponsorBalance(){
         $list = Sponsorship::where('sponsor_id',$this->id)->get();
+        $amount = 0.00;
         foreach($list as $spn){
-            $this->balance -= $spn->amount;
-            $this->save();
+            $amount += $spn->amount;
         }
+        $this->payout($amount);
+    }
+
+    public function updateStudentBalance(){
+        $list = Sponsorship::where('student_id',$this->id)->get();
+        $amount = 0.00;
+        foreach($list as $spn){
+            $amount += $spn->amount;
+        }
+        $this->addBalance($amount);
     }
 
     //Adds balance to a user
