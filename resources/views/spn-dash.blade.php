@@ -16,26 +16,7 @@
                     <li class="active"><a href="" disabled> <i class="icon-home"></i><span>Home</span></a></li>
                     <li>
                         <a href=""></a>
-                        <form class="custom-form" method="POST" action="{{ route('user.addfunds') }}">
-                            {{ csrf_field() }}
 
-                            <div class="form-group{{ $errors->any() ? ' has-error' : '' }}">
-                                <label for="price">Add Funds: (Max $250)</label>
-                                <input id="balance" type="text" class="form-control" name="balance" value="0.00">
-
-                                @if($errors->any())
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first() }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-sm">
-                                    Add Funds
-                                </button>
-                            </div>
-                        </form>
 
                     </li>
                 </ul>
@@ -92,7 +73,7 @@
             <section class="statistics section-padding">
                 <div class="container-fluid">
                     <div class="row d-flex align-items-md-stretch">
-                        <div class="col-6">
+                        <div class="col-md-6">
                             <!-- Income-->
                             <div class="wrapper income align-middle">
 
@@ -138,7 +119,7 @@
                                 @endif
                             </div>
                         </div>
-                        <div class="col-6">
+                        <div class="col-md-6">
                             <!-- User Actibity-->
                             <div class="wrapper user-activity">
                                 <h2 class="display h4 db-section-title">User Activity</h2>
@@ -161,7 +142,7 @@
             <section id="sponsor" class="statistics section-no-padding-bottom ">
                 <div class="container-fluid">
                     <div class="row d-flex align-items-stretch">
-                        <div class="col-6">
+                        <div class="col-md-6">
                             <!-- User Actibity-->
                             <div class="wrapper sponsor-form">
                                 <h2 class="db-section-title center-text">Sponsor a Student</h2>
@@ -184,7 +165,40 @@
                                 </form>
                             </div>
                         </div>
-                        <div class="col"></div>
+                        <div class="col-md-6">
+                            <div class="wrapper add-funds">
+                                <h2 class="db-section-title center-text">Add Funds</h2>
+                                <form id="add-funds-form" class="custom-form" method="POST" action="{{ route('user.addfunds') }}">
+                                    {{ csrf_field() }}
+
+                                    <div class="form-group center-text">
+                                        <label class="center-text">Select an option or enter a custom amount below</label>
+                                        <div>
+                                            <button type="button" id='fundsAdd5' class="btn btn-primary btn-sm">Add $5</button>
+                                            <button type="button" id='fundsAdd10' class="btn btn-primary btn-sm">Add $10</button>
+                                            <button type="button" id='fundsAdd20' class="btn btn-primary btn-sm">Add $20</button>
+                                            <button type="button" id='fundsAdd50' class="btn btn-primary btn-sm">Add $50</button>
+                                        </div>
+                                    </div>
+                                    <div class="form-group{{ $errors->any() ? ' has-error' : '' }}">
+                                        <label for="price">Cusom Amount: (Max $250)</label>
+                                        <input id="balance" type="text" class="form-control" name="balance" value="0.00">
+
+                                        @if($errors->any())
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first() }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary mx-auto">
+                                            Add Funds
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

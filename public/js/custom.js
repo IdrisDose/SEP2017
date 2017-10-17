@@ -12,7 +12,7 @@ $(document).ready(function() {
         }
     });
     $(":file").filestyle();
-    
+
     $( 'html' ).addClass("loadClass");
 });
 function animatedLogo(p1){
@@ -44,4 +44,24 @@ jQuery(document).ready(function($) {
     $(".clickable-row").click(function() {
         window.location = $(this).data("href");
     });
+});
+
+
+$("#fundsAdd5").click(function(){
+
+    $('#add-funds-form #balance').val('5.00');
+});
+
+$("#fundsAdd10").click(function(){
+
+    $('#add-funds-form #balance').val('10.00');
+});
+
+$("#fundsAdd20").click(function(){
+
+    $('#add-funds-form #balance').val('20.00');
+});
+
+$("#fundsAdd50").click(function(){
+    $('#add-funds-form #balance').val('50.00');
 });
