@@ -97,14 +97,15 @@
                                                     @php
                                                     $student = $sponsorship->student;
                                                     $uid = $student->id;
+                                                    $sid = $sponsorship->id;
                                                     @endphp
                                                     <tr>
                                                         <td onclick="window.document.location='/profile/{{$uid}}';" style="cursor: pointer;">{{$uid}}</td>
                                                         <td onclick="window.document.location='/profile/{{$uid}}';" style="cursor: pointer;">{{$student->getName()}}</td>
                                                         <td onclick="window.document.location='/profile/{{$uid}}';" style="cursor: pointer;">{{$student->sponsoredBy()}}</td>
                                                         <td>
-                                                            <a href="" onclick="event.preventDefault(); document.getElementById('stop-sponsor-form').submit();" class="btn btn-danger btn-sm">Cancel Sponsorship</a>
-                                                            <form id="stop-sponsor-form" action="{{ route('sponsor.delete', $uid) }}" method="POST" style="display: none;">{{ csrf_field() }} {{ method_field('DELETE') }}</form>
+                                                            <a href="" onclick="event.preventDefault(); document.getElementById('stop-sponsor-form-{{$sid}}').submit();" class="btn btn-danger btn-sm">Cancel Sponsorship</a>
+                                                            <form id="stop-sponsor-form-{{$sid}}" action="{{ route('sponsor.delete', $sid) }}" method="POST" style="display: none;">{{ csrf_field() }} {{ method_field('DELETE') }}</form>
                                                         </td>
                                                         <td>
                                                             <a class="btn btn-primary btn-sm" href="{{route('sponsorship.edit',$sponsorship->id)}}">Edit</a>

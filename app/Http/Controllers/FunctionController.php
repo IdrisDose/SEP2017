@@ -8,7 +8,9 @@ use App\Task;
 use App\Sponsorship;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; //add auth package
+use Illuminate\Support\Facades\DB;
 use Image;
+use Log;
 
 class FunctionController extends Controller
 {
@@ -66,9 +68,10 @@ class FunctionController extends Controller
         $data = $req->all();
         $sponsorship = new Sponsorship();
         $student = User::where('id',$data['student_id'])->first();
+
         if(Auth::user()->isSponsor()){
             $sponsorship->create($data);
-            Auth::user()->updateSponsorBalance();
+            Auth::user()->payout('5.00');
             $student->updateStudentBalance();
         }
         return back();
@@ -77,8 +80,14 @@ class FunctionController extends Controller
     public function removeSponsor($id){
         if(Auth::user() && Auth::user()->isSponsor()){
             $sponsor = Auth::user()->id;
-            $sponsorship = Sponsorship::where('student_id',$id)->where('sponsor_id',$sponsor)->first();
-            User::where('id',$id)->first()->payout($sponsorship->amount);
+            $sponsorshipTmp = Sponsorship::all();
+            $sponsorship = $sponsorshipTmp->where('id',$id)->first();
+
+            Log::info($sponsorship);
+
+            $sid = $sponsorship->student_id;
+
+            User::where('id',$sid)->first()->payout($sponsorship->amount);
             $sponsorship->delete();
             return redirect(route('dashboard'));
         }
@@ -105,6 +114,7 @@ class FunctionController extends Controller
 
             $student->payout($sponsorship->amount);
             $sponsorship->amount = $amount;
+
             //If user has enough money
             if($user->balance >= $sponsorship->amount){
                 if(($this->sponsorCheck($amount))){
