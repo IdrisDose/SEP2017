@@ -26,7 +26,7 @@
                             <div class="col-md-3">
                                 <div class="wrapper count-title d-flex purple">
                                     <div class="icon"><i class="icon-bill"></i></div>
-                                    <div class="name"><strong class="text-uppercase">Tasks Pending</strong>
+                                    <div class="name"><strong class="text-uppercase"> Tasks Pending</strong>
                                         <div class="count-number mt-3">0</div>
                                     </div>
                                 </div>
@@ -50,7 +50,7 @@
                             <div class="col-md-3">
                                 <div class="wrapper count-title d-flex red">
                                     <div class="icon"><i class="icon-bill"></i></div>
-                                    <div class="name"><strong class="text-uppercase">Sponsors</strong>
+                                    <div class="name"><strong class="text-uppercase"> Sponsors</strong>
                                         <div class="count-number mt-3">{{Auth::user()->sponsoredBy()}}</div>
                                     </div>
                                 </div>
@@ -104,7 +104,7 @@
                         <div class="wrapper user-activity">
                           <h2 class="display h4 db-section-title">User Activity</h2>
                           <div class="number">0</div>
-                          <h3 class="h4 display db-section-title">Compleion Rate</h3>
+                          <h3 class="h4 display db-section-title">Completion Rate</h3>
                           <div class="progress">
                             <div role="progressbar" style="width: 0%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar bg-primary"></div>
                           </div>
