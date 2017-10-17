@@ -19,8 +19,8 @@
                      @endif
 
                      @if(Request::is('sponsors'))
-                         <li class="nav-item active">
-                             <a class="nav-link " href="{{route('sponsors')}}">Sponsors <span class="sr-only">(current)</span></a>
+                         <li class="nav-item mr-1 active">
+                             <a class="nav-link" href="{{route('sponsors')}}">Sponsors <span class="sr-only">(current)</span></a>
                          </li>
                      @else
                          <li class="nav-item mr-1">
@@ -29,7 +29,7 @@
                      @endif
 
                      @if(Request::is('students'))
-                         <li class="nav-item mr-1 active">
+                        <li class="nav-item mr-1 active">
                              <a class="nav-link" href="{{route('students')}}">Students <span class="sr-only">(current)</span></a>
                          </li>
                      @else
