@@ -506,3 +506,7 @@ select.form-control:not([size]):not([multiple]){
 .imageupload{
     display: none;
 }
+
+.navbar form input{
+    overflow:auto;
+}
