@@ -19,6 +19,10 @@ main{
     flex:1 0 auto;
     z-index: 950;
 }
+header,footer{
+    z-index: 951;
+}
+
 .height-change-listener {
   position: absolute;
   top: 0;
@@ -433,7 +437,7 @@ code {
     color: black;
 }
 @media (min-width: 768px) and (min-height: 652px){
-.green-circle-contain{
+.orange-circle-contain{
     bottom:0;
     left:0;
     overflow:hidden;
@@ -443,7 +447,7 @@ code {
     z-index: 900;
 }
 
-.green-circle{
+.orange-circle{
     background: #ce7349;
     border-radius: 50%;
     width: 140vw;
