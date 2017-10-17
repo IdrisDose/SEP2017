@@ -675,7 +675,7 @@ section.dashboard-counts .count-number {
     font-size: 0.9em;
   }
   section.dashboard-counts .count-number {
-    font-size: 3em;
+    /*font-size: 3em;*/
   }
 }
 
