@@ -30,7 +30,7 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('/dashboard', 'PageController@dash')->name('dashboard');
     Route::put('/updateprofile/{id}', 'FunctionController@editAccount')->name('profile.update');
     Route::post('/avatar', 'FunctionController@updateAvatar')->name('avatar.update');
-    Route::post('/user', 'FunctionController@addFunds')->name('user.addfunds');
+    Route::post('/user', 'FunctionController@updateFunds')->name('user.addfunds');
 
     //Task
     Route::get('/task/{id}', 'PageController@task')->name('task');

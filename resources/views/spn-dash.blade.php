@@ -20,7 +20,7 @@
                             {{ csrf_field() }}
 
                             <div class="form-group{{ $errors->any() ? ' has-error' : '' }}">
-                                <label for="price">Add Funds:</label>
+                                <label for="price">Add Funds: (Max $250)</label>
                                 <input id="balance" type="text" class="form-control" name="balance" value="0.00">
 
                                 @if($errors->any())
